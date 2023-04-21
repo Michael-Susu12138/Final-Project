@@ -5,6 +5,8 @@ TagManager:
   serializedVersion: 2
   tags:
   - construct_sites
+  - build_panel
+  - wayPoints
   layers:
   - Default
   - TransparentFX
@@ -12,8 +14,8 @@ TagManager:
   - 
   - Water
   - UI
-  - 
-  - 
+  - SiteConstruction
+  - BuildPanelLayer
   - 
   - 
   - 
@@ -44,4 +46,10 @@ TagManager:
     locked: 0
   - name: Default
     uniqueID: 0
+    locked: 0
+  - name: UI
+    uniqueID: 2884703907
+    locked: 0
+  - name: Supreme UI
+    uniqueID: 894742893
     locked: 0
