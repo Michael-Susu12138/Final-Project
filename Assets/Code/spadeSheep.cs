@@ -51,4 +51,11 @@ public class spadeSheep : MonoBehaviour
         }
         return closest;
     }
+
+    IEnumerator Throw() {
+        while (true) {
+            yield return new WaitForSeconds(10f);
+            _animator.SetBool("isThrowing", true);
+        }
+    }
 }
