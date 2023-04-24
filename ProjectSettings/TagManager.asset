@@ -7,11 +7,12 @@ TagManager:
   - construct_sites
   - wayPoints
   - build_panel
+  - chickenIcon
   layers:
   - Default
   - TransparentFX
   - Ignore Raycast
-  - 
+  - Background
   - Water
   - UI
   - 
