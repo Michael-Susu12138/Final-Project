@@ -13,8 +13,8 @@ public class ConstructSites : MonoBehaviour
     Transform card;
     Camera cam;
     public LayerMask  UILayer;
-    public GameObject gamePanel,chickenHouse;
-
+    public GameObject gamePanel,chickenHouse,done_gamePanel,construct_site_prefab;
+    GameObject construct_site,buildPanel,Construction;
     private void Start() {
         cam = Camera.main;
 
@@ -38,23 +38,63 @@ public class ConstructSites : MonoBehaviour
 
     void BuildPanel(Vector2 touchPos){
         Vector2 worldPos = cam.ScreenToWorldPoint(touchPos);
+
         if (Physics2D.OverlapPoint(worldPos, UILayer))
         {            
             card = Physics2D.OverlapPoint(worldPos, UILayer).transform;
             if(card.gameObject.CompareTag("construct_sites")){
+                // create build_panel, if it exists, turn off the build panel
                 if (GameObject.FindWithTag("build_panel") != null){
                     Destroy(GameObject.FindWithTag("build_panel"));
-                } else {
-                    Instantiate(gamePanel,card.position,Quaternion.identity);
+                } else { 
+                    buildPanel = Instantiate(gamePanel,card.position,Quaternion.identity);
+
                 }
-                
-            }
-            else if(card.gameObject.CompareTag("chickenIcon")){
-                Instantiate(chickenHouse,card.position,Quaternion.identity);
-                Destroy(card.gameObject);
+                construct_site = card.gameObject;    
+            } else {
+                if ( buildPanel != null){
+                    Destroy(buildPanel);
+                }
             }
             
-        } 
+            // chicken constructions
+            if(card.gameObject.CompareTag("chickenIcon")){
+                Transform build_trans = GameObject.FindWithTag("build_panel").transform;
+                Instantiate(chickenHouse,build_trans.position,Quaternion.identity);
+                // after instantiation of the construction, destroy all the game panels and icons
+                foreach (GameObject obj in GameObject.FindGameObjectsWithTag("chickenIcon")){
+                    Destroy(obj);
+                }
+                if(construct_site != null){
+                    Destroy(construct_site);
+                }
+            }
+            // chicken house lvl 1
+            if (card.gameObject.CompareTag("chickHouse_lvl1")){
+                Construction = card.gameObject;
+                if (GameObject.FindWithTag("build_panel") != null){
+                    Destroy(GameObject.FindWithTag("build_panel"));
+                } else { 
+                    buildPanel = Instantiate(done_gamePanel,card.position,Quaternion.identity);
+                }
+            } else {
+                if ( buildPanel != null){
+                    Destroy(buildPanel);
+                }
+            }
+            if(card.gameObject.CompareTag("Destruction")){
+                Transform build_trans = GameObject.FindWithTag("build_panel").transform;
+                Instantiate(construct_site_prefab,build_trans.position,Quaternion.identity);
+                Destroy(Construction);
+            }
+            
+        } else {
+            // clicking somewhere else will close the build panel
+            if (buildPanel != null){
+                Destroy(buildPanel);
+            }
+        }
+        
         
     }
 }
