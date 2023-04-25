@@ -8,6 +8,9 @@ TagManager:
   - wayPoints
   - build_panel
   - chickenIcon
+  - chickHouse_lvl1
+  - LevelUp
+  - Destruction
   layers:
   - Default
   - TransparentFX
