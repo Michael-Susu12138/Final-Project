@@ -2,9 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-//TODO: update gameobject pane
-//      being able to retract build icon after use
-//      animations transitions
+//TODO: when lvl2 constructs, it changes the position of construct_sites
 
 
 
@@ -13,8 +11,9 @@ public class ConstructSites : MonoBehaviour
     Transform card;
     Camera cam;
     public LayerMask  UILayer;
-    public GameObject gamePanel,chickenHouselvl1, chickenHouselvl2,done_gamePanel,construct_site_prefab;
+    public GameObject gamePanel,chickenHouselvl1, chickenHouselvl2,chickenHouselvl3,done_gamePanel,destructionPanel;
     GameObject construct_site,buildPanel,Construction;
+    string currentLevel;
     private void Start() {
         cam = Camera.main;
 
@@ -22,18 +21,13 @@ public class ConstructSites : MonoBehaviour
 
     // Update is called once per frame
     void Update()
-    {
-        
+    {  
 # if UNITY_STANDALONE || UNITY_EDITOR
-
         if(Input.GetMouseButtonDown(0)){
             // GameObject buildPanel = GameObject.FindGameObjectWithTag("build_panel");
             BuildPanel(Input.mousePosition);
         }
-
 # endif
-
-
     }
 
     void BuildPanel(Vector2 touchPos){
@@ -68,24 +62,29 @@ public class ConstructSites : MonoBehaviour
                 foreach (GameObject obj in GameObject.FindGameObjectsWithTag("chickenIcon")){
                     Destroy(obj);
                 }
-                if(construct_site != null){
-                    Destroy(construct_site);
+                if(construct_site.activeSelf){
+                    construct_site.SetActive(false);
                 }
             }
 
-            // construct_done Panel for each construction
-            construct_doneBuildPanel();   
+              
 
             // chicken house lvl 1
             buildPanel_done_construct("chickHouse_lvl1",card);
 
             // chick house lvl2
             buildPanel_done_construct("chickHouse_lvl2",card);
+
+            //chick house lvl3
+            buildPanel_done_construct("chickHouse_lvl3",card);
+
+            // construct_done Panel for each construction
+            construct_doneBuildPanel(currentLevel); 
             
         } else {
             // clicking somewhere else will close the build panel
             if (buildPanel != null){
-                Destroy(buildPanel);
+                buildPanel.SetActive(false);
             }
         }
         
@@ -94,26 +93,51 @@ public class ConstructSites : MonoBehaviour
 
     private void buildPanel_done_construct(string tagName, Transform card){
         if (card.gameObject.CompareTag(tagName)){
+            Debug.Log(tagName);
             Construction = card.gameObject;
-            if (GameObject.FindWithTag("build_panel") != null){
-                Destroy(GameObject.FindWithTag("build_panel"));
-            } else { 
+            currentLevel = tagName;
+            if(GameObject.FindWithTag("build_panel") == null){
                 buildPanel = Instantiate(done_gamePanel,card.position,Quaternion.identity);
+            }
+            else if (GameObject.FindWithTag("build_panel").activeSelf){
+                // Destroy(GameObject.FindWithTag("build_panel"));
+                GameObject.FindWithTag("build_panel").SetActive(false);
+            } else { 
+                // buildPanel = Instantiate(done_gamePanel,card.position,Quaternion.identity);
+                buildPanel.SetActive(true);
+                // Destroy(buildPanel.transform.Find("LevelUp").gameObject);
+                // buildPanel.transform.GetChild(0).gameObject.SetActive(false);
             }
         } 
         
     }
 
-    private void construct_doneBuildPanel(){
+    private void construct_doneBuildPanel(string currentLevel){
+        GameObject nextLevelPrefab = null;
+        if (currentLevel == "chickHouse_lvl1"){
+            nextLevelPrefab = chickenHouselvl2;
+        } else if (currentLevel == "chickHouse_lvl2"){
+            nextLevelPrefab = chickenHouselvl3;
+        } else {
+            nextLevelPrefab = null;
+        }
         if(card.gameObject.CompareTag("Destruction")){
             Transform build_trans = GameObject.FindWithTag("build_panel").transform;
-            Instantiate(construct_site_prefab,build_trans.position,Quaternion.identity);
+            // Instantiate(construct_site_prefab,build_trans.position,Quaternion.identity);
+            construct_site.SetActive(true);
+            //destory its parent 
+            if (Construction.transform.parent != null){
+                Destroy(Construction.transform.parent.gameObject);
+            }
             Destroy(Construction);
         } 
         if(card.gameObject.CompareTag("LevelUp")){
-            Transform build_trans = GameObject.FindWithTag("build_panel").transform;
-            Vector2 newPos = new Vector2(build_trans.position.x,build_trans.position.y);
-            Instantiate(chickenHouselvl2,newPos,Quaternion.identity);
+            Transform build_trans = GameObject.FindWithTag("build_panel").transform; 
+            Instantiate(nextLevelPrefab,build_trans.position,Quaternion.identity);
+            // destroy its parent
+            if (Construction.transform.parent != null){
+                Destroy(Construction.transform.parent.gameObject);
+            }
             Destroy(Construction);
         }
     }
