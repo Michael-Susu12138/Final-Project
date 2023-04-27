@@ -13,6 +13,7 @@ TagManager:
   - Destruction
   - chickHouse_lvl2
   - chickHouse_lvl3
+  - Enemy
   layers:
   - Default
   - TransparentFX
