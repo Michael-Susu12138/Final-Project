@@ -14,6 +14,9 @@ TagManager:
   - chickHouse_lvl2
   - chickHouse_lvl3
   - Enemy
+  - sheepHouse_lvl1
+  - sheepHouse_lvl2
+  - sheepHouse_lvl3
   layers:
   - Default
   - TransparentFX
