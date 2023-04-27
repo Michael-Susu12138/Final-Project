@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class spadeSheep : MonoBehaviour
+public class rockSheep : MonoBehaviour
 {
     public Animator _animator;
     Rigidbody2D _rigidbody2d;
@@ -19,25 +19,6 @@ public class spadeSheep : MonoBehaviour
     void Update() {
         // StartCoroutine(Throw());
         // _animator.SetBool("isThrowing", false);
-    /*
-        if (closestEnemy != null) {
-            Vector3 difference = closestEnemy.transform.position - transform.position;
-            
-            while (difference.sqrMagnitude > 10) {
-                print("move");
-                if (((closestEnemy.transform.position.x > transform.position.x) && (transform.localScale.x < 0)) 
-                    || (closestEnemy.transform.position.x < transform.position.x) && (transform.localScale.x > 0)) {
-                        transform.localScale *= new Vector2(-1, 1);
-                }
-                
-                _animator.SetBool("isMoving", true);
-                Vector2 angleDirection = (closestEnemy.transform.position - transform.position);
-                _rigidbody2d.velocity = angleDirection * 0.1f;           
-            }
-            
-            _animator.SetBool("isMoving", false);
-        }
-    */
     }
 
     public GameObject FindClosestEnemy() {
@@ -60,7 +41,7 @@ public class spadeSheep : MonoBehaviour
     IEnumerator Throw() {
         while (true) {
             _animator.SetBool("isThrowing", true);
-            yield return new WaitForSeconds(0.003f);
+            yield return new WaitForSeconds(0.05f);
             _animator.SetBool("isThrowing", false);
         }
     }
