@@ -13,9 +13,13 @@ public class spadeSheep : MonoBehaviour
         _rigidbody2d = GetComponent<Rigidbody2D>();
 
         closestEnemy = FindClosestEnemy();
+        // StartCoroutine(Throw());
     }
 
     void Update() {
+        StartCoroutine(Throw());
+        _animator.SetBool("isThrowing", false);
+    /*
         if (closestEnemy != null) {
             Vector3 difference = closestEnemy.transform.position - transform.position;
             
@@ -33,6 +37,7 @@ public class spadeSheep : MonoBehaviour
             
             _animator.SetBool("isMoving", false);
         }
+    */
     }
 
     public GameObject FindClosestEnemy() {
@@ -54,8 +59,9 @@ public class spadeSheep : MonoBehaviour
 
     IEnumerator Throw() {
         while (true) {
-            yield return new WaitForSeconds(10f);
             _animator.SetBool("isThrowing", true);
+            yield return new WaitForSeconds(0.01f);
+            _animator.SetBool("isThrowing", false);
         }
     }
 }
