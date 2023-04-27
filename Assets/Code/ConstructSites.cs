@@ -11,7 +11,7 @@ public class ConstructSites : MonoBehaviour
     Transform card;
     Camera cam;
     public LayerMask  UILayer;
-    public GameObject gamePanel,chickenHouselvl1, chickenHouselvl2,chickenHouselvl3,done_gamePanel,destructionPanel;
+    public GameObject gamePanel,chickenHouselvl1, chickenHouselvl2,chickenHouselvl3,done_gamePanel,destructionPanel,sheepHouselvl1, sheepHouselvl2,sheepHouselvl3;
     GameObject construct_site,buildPanel,Construction;
     string currentLevel;
     private void Start() {
@@ -28,6 +28,19 @@ public class ConstructSites : MonoBehaviour
             BuildPanel(Input.mousePosition);
         }
 # endif
+
+#if UNITY_IPHONE || UNITY_ANDROID
+
+        //Touch Ver
+        if (Input.touchCount > 0)
+        {
+            Touch touch = Input.GetTouch(0);
+            if (touch.phase == TouchPhase.Began)
+            {
+                BuildPanel(touch.position);
+            }
+        }
+#endif
     }
 
     void BuildPanel(Vector2 touchPos){
