@@ -12,7 +12,7 @@ using UnityEngine;
 public class FighterBehavior : MonoBehaviour
 {
     public float x_speed, y_speed;
-    float lookDst = 1.1f;
+    float lookDst = 1.6f;
     Rigidbody2D _rigidbody2D;
     GameObject Enemies;
     
@@ -21,14 +21,14 @@ public class FighterBehavior : MonoBehaviour
     void Start()
     {
         _rigidbody2D = GetComponent<Rigidbody2D>();
-        Enemies = GameObject.FindGameObjectWithTag("Player");
+        Enemies = GameObject.FindGameObjectWithTag("Enemy");
     }
 
     // // Update is called once per frame
-    // void Update()
-    // {
-        
-    // }
+    void Update()
+    {
+        behavior();   
+    }
 
     void behavior(){
         if (Vector2.Distance(transform.position,Enemies.transform.position) < lookDst){
@@ -40,7 +40,6 @@ public class FighterBehavior : MonoBehaviour
             Vector2 dir = (Enemies.transform.position - transform.position);
             
             _rigidbody2D.velocity = new Vector2(dir.normalized.x * x_speed, dir.normalized.y*y_speed);
-            
             
         }
     }
