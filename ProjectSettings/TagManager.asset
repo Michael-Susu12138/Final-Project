@@ -17,6 +17,7 @@ TagManager:
   - sheepHouse_lvl1
   - sheepHouse_lvl2
   - sheepHouse_lvl3
+  - sheepIcon
   layers:
   - Default
   - TransparentFX
