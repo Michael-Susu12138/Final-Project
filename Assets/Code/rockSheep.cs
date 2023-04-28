@@ -21,6 +21,7 @@ public class rockSheep : MonoBehaviour
     void FixedUpdate() {
         if (inRange == true) {
             last = StartCoroutine(Throw());
+            // throw at the enemy
             print("start");
         }
         else {
@@ -39,6 +40,11 @@ public class rockSheep : MonoBehaviour
     private void OnTriggerEnter2D(Collider2D other) {
         if (other.CompareTag("Enemy")) {
             inRange = true;
+            if (other.transform.position.x < transform.position.x){
+                transform.localScale = new Vector2(-1,1);
+            } else {
+                transform.localScale = new Vector2(1,1);
+            }
             // last = StartCoroutine(Throw());
             // print("start");
         }

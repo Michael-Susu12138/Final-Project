@@ -41,6 +41,11 @@ public class spadeSheep : MonoBehaviour
             inRange = true;
             // last = StartCoroutine(Throw());
             // print("start");
+            if (other.transform.position.x < transform.position.x){
+                transform.localScale = new Vector2(-1,1);
+            } else {
+                transform.localScale = new Vector2(1,1);
+            }
         }
     }
 

@@ -64,3 +64,6 @@ TagManager:
   - name: SupremeUI
     uniqueID: 3311069211
     locked: 0
+  - name: GameObjects
+    uniqueID: 1010165599
+    locked: 0

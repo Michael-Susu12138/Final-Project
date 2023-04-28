@@ -10,7 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 5753779783324288164}
   - component: {fileID: 5773420263075135715}
-  m_Layer: 0
+  m_Layer: 5
   m_Name: leftLeg
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -94,7 +94,7 @@ GameObject:
   m_Component:
   - component: {fileID: 8036040765151689066}
   - component: {fileID: 2668557200698344290}
-  m_Layer: 0
+  m_Layer: 5
   m_Name: rightArm
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -182,7 +182,7 @@ GameObject:
   - component: {fileID: 6076604175670792839}
   - component: {fileID: 7418967910837629115}
   - component: {fileID: 5331621161906606656}
-  m_Layer: 0
+  m_Layer: 5
   m_Name: rockSheep
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -218,8 +218,8 @@ SortingGroup:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 4610989563344898943}
   m_Enabled: 1
-  m_SortingLayerID: 0
-  m_SortingLayer: 0
+  m_SortingLayerID: 1010165599
+  m_SortingLayer: 3
   m_SortingOrder: 0
 --- !u!50 &2527195103709894175
 Rigidbody2D:
@@ -288,9 +288,9 @@ CircleCollider2D:
   m_IsTrigger: 1
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: 0, y: 0}
+  m_Offset: {x: 0.2387762, y: 0}
   serializedVersion: 2
-  m_Radius: 3
+  m_Radius: 3.6660604
 --- !u!1 &4971947411471666618
 GameObject:
   m_ObjectHideFlags: 0
@@ -301,7 +301,7 @@ GameObject:
   m_Component:
   - component: {fileID: 2366055620761098519}
   - component: {fileID: 2392146757164239244}
-  m_Layer: 0
+  m_Layer: 5
   m_Name: body
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -385,7 +385,7 @@ GameObject:
   m_Component:
   - component: {fileID: 6176140189230056457}
   - component: {fileID: 7950453019352479184}
-  m_Layer: 0
+  m_Layer: 5
   m_Name: leftArm
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -471,7 +471,7 @@ GameObject:
   - component: {fileID: 6112087980044816173}
   - component: {fileID: 793028951171555868}
   - component: {fileID: 5279245782608782549}
-  m_Layer: 0
+  m_Layer: 5
   m_Name: rock
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -611,7 +611,7 @@ GameObject:
   m_Component:
   - component: {fileID: 5771539998226830900}
   - component: {fileID: 986891797055739863}
-  m_Layer: 0
+  m_Layer: 5
   m_Name: rightLeg
   m_TagString: Untagged
   m_Icon: {fileID: 0}
