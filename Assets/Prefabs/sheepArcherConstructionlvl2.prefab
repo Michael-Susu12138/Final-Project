@@ -42,6 +42,7 @@ GameObject:
   - component: {fileID: 7677843231510307572}
   - component: {fileID: 7677843231510307573}
   - component: {fileID: 7677843231510307570}
+  - component: {fileID: -4745089753317120638}
   m_Layer: 5
   m_Name: sheepArcherConstructionlvl2
   m_TagString: sheepHouse_lvl2
@@ -221,3 +222,16 @@ PolygonCollider2D:
       - {x: -0.45999998, y: -0.475}
       - {x: -0.47, y: -0.48499998}
       - {x: -0.45999998, y: -0.48499998}
+--- !u!114 &-4745089753317120638
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7677843231510307571}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2b7b67c7e212c53468c8bf2cac5b553a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  sheepArcher: {fileID: 1998935069605281201, guid: b9a84fe6c4ccd014da6c34d8a633f3a3, type: 3}

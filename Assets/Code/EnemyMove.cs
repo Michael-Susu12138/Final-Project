@@ -6,9 +6,9 @@ public class EnemyMove : MonoBehaviour
 {
     Rigidbody2D _rigidbody2D;
     // public Transform destination;
-    public Transform[] wayPoints;
+    ArrayList wayPoints = new ArrayList();
     int index = 0;
-    float speed = 1.2f;
+    public float speed = 1.2f;
     float _deltaTime;
     void Start()
     {
@@ -17,19 +17,27 @@ public class EnemyMove : MonoBehaviour
 
         // wayPointsObj = GameObject.FindGameObjectsWithTag("wayPoints");
         // StartCoroutine(MoveLoop());
+        foreach(GameObject wayPoint in GameObject.FindGameObjectsWithTag("wayPoints")){
+            wayPoints.Add(wayPoint.transform);
+        }
+        Debug.Log(wayPoints);
     }
     // Update is called once per frame
     void Update()
     { 
-        if (index<wayPoints.Length){
+        if (index<wayPoints.Count){
             float step = speed*Time.deltaTime;
-            transform.position = Vector2.MoveTowards(transform.position,wayPoints[index].position,step);
-            if (Vector2.Distance(transform.position,wayPoints[index].position) < 0.1f){
+            transform.position = Vector2.MoveTowards(transform.position,getItemByIndex(wayPoints,index).position,step);
+            if (Vector2.Distance(transform.position,getItemByIndex(wayPoints,index).position) < 0.1f){
                 index += 1;
             }
         }
         
         
+    }
+    Transform getItemByIndex(ArrayList lst, int index){
+        Transform result = (Transform)lst[index];
+        return result;
     }
     
 }
