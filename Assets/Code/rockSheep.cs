@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class spadeSheep : MonoBehaviour
+public class rockSheep : MonoBehaviour
 {
     public Animator _animator;
     Rigidbody2D _rigidbody2d;
@@ -53,7 +53,7 @@ public class spadeSheep : MonoBehaviour
     IEnumerator Throw() {
         while (true) {
             _animator.SetBool("isThrowing", true);
-            yield return new WaitForSeconds(0.003f);
+            yield return new WaitForSeconds(0.05f);
             _animator.SetBool("isThrowing", false);
         }
     }

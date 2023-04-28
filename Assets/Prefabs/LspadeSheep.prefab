@@ -13,9 +13,9 @@ GameObject:
   - component: {fileID: 5746287676419427303}
   - component: {fileID: 7949483274620338303}
   - component: {fileID: 2572115635226068612}
-  - component: {fileID: 8820188643779979582}
+  - component: {fileID: 9154353584473457211}
   m_Layer: 0
-  m_Name: spadeSheep
+  m_Name: LspadeSheep
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -30,7 +30,7 @@ Transform:
   m_GameObject: {fileID: 1998935069605281201}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: -6.26, y: -0.63, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalScale: {x: -1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 6178949775053751834}
@@ -84,7 +84,7 @@ Animator:
   m_GameObject: {fileID: 1998935069605281201}
   m_Enabled: 1
   m_Avatar: {fileID: 0}
-  m_Controller: {fileID: 9100000, guid: debf7d477bb207b45b5c83969bdc73ed, type: 2}
+  m_Controller: {fileID: 9100000, guid: faa3379d5f4b41a43a74578b51e493d2, type: 2}
   m_CullingMode: 0
   m_UpdateMode: 0
   m_ApplyRootMotion: 0
@@ -107,7 +107,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _animator: {fileID: 7949483274620338303}
---- !u!58 &8820188643779979582
+--- !u!58 &9154353584473457211
 CircleCollider2D:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
