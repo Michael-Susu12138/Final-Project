@@ -18,19 +18,29 @@ public class spadeSheep : MonoBehaviour
         // StartCoroutine(Throw());
     }
 
-    void Update() {
-        if ((last != null) && (inRange == true)) {
-            StopCoroutine(last);
-            last = null;
+    void FixedUpdate() {
+        if (inRange == true) {
+            last = StartCoroutine(Throw());
+            print("start");
+        }
+        else {
+        // else if (last != null) {
+            // StopCoroutine(last);
+            StopAllCoroutines();
             print("stop");
         }
+        // if ((last != null) && (inRange == false)) {
+        //     StopCoroutine(last);
+        //     last = null;
+        //     print("stop");
+        // }
     }
 
     private void OnTriggerEnter2D(Collider2D other) {
         if (other.CompareTag("Enemy")) {
             inRange = true;
-            last = StartCoroutine(Throw());
-            print("start");
+            // last = StartCoroutine(Throw());
+            // print("start");
         }
     }
 
