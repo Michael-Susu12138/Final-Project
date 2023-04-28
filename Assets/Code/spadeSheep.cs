@@ -7,56 +7,39 @@ public class spadeSheep : MonoBehaviour
     public Animator _animator;
     Rigidbody2D _rigidbody2d;
     GameObject closestEnemy;
+    bool inRange = false; 
+    Coroutine last = null;
 
     void Start() {
         _animator = GetComponent<Animator>();
         _rigidbody2d = GetComponent<Rigidbody2D>();
 
-        closestEnemy = FindClosestEnemy();
-        StartCoroutine(Throw());
+        // closestEnemy = FindClosestEnemy();
+        // StartCoroutine(Throw());
     }
 
     void Update() {
-        // StartCoroutine(Throw());
-        // _animator.SetBool("isThrowing", false);
-    /*
-        if (closestEnemy != null) {
-            Vector3 difference = closestEnemy.transform.position - transform.position;
-            
-            while (difference.sqrMagnitude > 10) {
-                print("move");
-                if (((closestEnemy.transform.position.x > transform.position.x) && (transform.localScale.x < 0)) 
-                    || (closestEnemy.transform.position.x < transform.position.x) && (transform.localScale.x > 0)) {
-                        transform.localScale *= new Vector2(-1, 1);
-                }
-                
-                _animator.SetBool("isMoving", true);
-                Vector2 angleDirection = (closestEnemy.transform.position - transform.position);
-                _rigidbody2d.velocity = angleDirection * 0.1f;           
-            }
-            
-            _animator.SetBool("isMoving", false);
+        if ((last != null) && (inRange == true)) {
+            StopCoroutine(last);
+            last = null;
+            print("stop");
         }
-    */
     }
 
-    public GameObject FindClosestEnemy() {
-        GameObject[] enemies;
-        enemies = GameObject.FindGameObjectsWithTag("Enemy");
-        GameObject closest = null;
-        float distance = Mathf.Infinity;
-        Vector3 position = transform.position;
-        foreach (GameObject each in enemies) {
-            Vector3 difference = each.transform.position - position;
-            float currDistance = difference.sqrMagnitude;
-            if (currDistance < distance) {
-                closest = each;
-                distance = currDistance;
-            }
+    private void OnTriggerEnter2D(Collider2D other) {
+        if (other.CompareTag("Enemy")) {
+            inRange = true;
+            last = StartCoroutine(Throw());
+            print("start");
         }
-        return closest;
     }
 
+    private void OnTriggerExit2D(Collider2D other) {
+        if (inRange == true) {
+            inRange = false;
+        }
+    }
+  
     IEnumerator Throw() {
         while (true) {
             _animator.SetBool("isThrowing", true);

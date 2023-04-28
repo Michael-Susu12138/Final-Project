@@ -179,9 +179,9 @@ GameObject:
   - component: {fileID: 8951513200163167144}
   - component: {fileID: 4785301219680426522}
   - component: {fileID: 2527195103709894175}
-  - component: {fileID: 2783238064307816897}
   - component: {fileID: 6076604175670792839}
   - component: {fileID: 7418967910837629115}
+  - component: {fileID: 5331621161906606656}
   m_Layer: 0
   m_Name: rockSheep
   m_TagString: Untagged
@@ -242,22 +242,6 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 0
   m_Constraints: 0
---- !u!70 &2783238064307816897
-CapsuleCollider2D:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 4610989563344898943}
-  m_Enabled: 1
-  m_Density: 1
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_UsedByEffector: 0
-  m_UsedByComposite: 0
-  m_Offset: {x: 0.018964767, y: 0.14935178}
-  m_Size: {x: 0.6114216, y: 0.8625015}
-  m_Direction: 0
 --- !u!95 &6076604175670792839
 Animator:
   serializedVersion: 5
@@ -291,6 +275,22 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _animator: {fileID: 0}
+--- !u!58 &5331621161906606656
+CircleCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4610989563344898943}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: 0, y: 0}
+  serializedVersion: 2
+  m_Radius: 3
 --- !u!1 &4971947411471666618
 GameObject:
   m_ObjectHideFlags: 0
