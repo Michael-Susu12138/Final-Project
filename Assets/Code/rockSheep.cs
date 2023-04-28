@@ -8,33 +8,19 @@ public class rockSheep : MonoBehaviour
     Rigidbody2D _rigidbody2d;
     GameObject closestEnemy;
     bool inRange = false; 
-    Coroutine last = null;
 
     void Start() {
         _animator = GetComponent<Animator>();
         _rigidbody2d = GetComponent<Rigidbody2D>();
-
-        // closestEnemy = FindClosestEnemy();
-        // StartCoroutine(Throw());
     }
 
     void FixedUpdate() {
         if (inRange == true) {
-            last = StartCoroutine(Throw());
-            // throw at the enemy
-            print("start");
+            _animator.SetBool("isThrowing", true);
         }
         else {
-        // else if (last != null) {
-            // StopCoroutine(last);
-            StopAllCoroutines();
-            print("stop");
+            _animator.SetBool("isThrowing", false);
         }
-        // if ((last != null) && (inRange == false)) {
-        //     StopCoroutine(last);
-        //     last = null;
-        //     print("stop");
-        // }
     }
 
     private void OnTriggerEnter2D(Collider2D other) {
@@ -47,6 +33,7 @@ public class rockSheep : MonoBehaviour
             }
             // last = StartCoroutine(Throw());
             // print("start");
+
         }
     }
 
@@ -56,6 +43,7 @@ public class rockSheep : MonoBehaviour
         }
     }
   
+    /*
     IEnumerator Throw() {
         while (true) {
             _animator.SetBool("isThrowing", true);
@@ -63,4 +51,5 @@ public class rockSheep : MonoBehaviour
             _animator.SetBool("isThrowing", false);
         }
     }
+    */
 }

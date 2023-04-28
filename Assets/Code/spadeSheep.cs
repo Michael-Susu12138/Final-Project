@@ -8,32 +8,19 @@ public class spadeSheep : MonoBehaviour
     Rigidbody2D _rigidbody2d;
     GameObject closestEnemy;
     bool inRange = false; 
-    Coroutine last = null;
 
     void Start() {
         _animator = GetComponent<Animator>();
         _rigidbody2d = GetComponent<Rigidbody2D>();
-
-        // closestEnemy = FindClosestEnemy();
-        // StartCoroutine(Throw());
     }
 
     void FixedUpdate() {
         if (inRange == true) {
-            last = StartCoroutine(Throw());
-            print("start");
+            _animator.SetBool("isThrowing", true);
         }
         else {
-        // else if (last != null) {
-            // StopCoroutine(last);
-            StopAllCoroutines();
-            print("stop");
+            _animator.SetBool("isThrowing", false);
         }
-        // if ((last != null) && (inRange == false)) {
-        //     StopCoroutine(last);
-        //     last = null;
-        //     print("stop");
-        // }
     }
 
     private void OnTriggerEnter2D(Collider2D other) {
@@ -55,6 +42,7 @@ public class spadeSheep : MonoBehaviour
         }
     }
   
+    /*
     IEnumerator Throw() {
         while (true) {
             _animator.SetBool("isThrowing", true);
@@ -62,4 +50,5 @@ public class spadeSheep : MonoBehaviour
             _animator.SetBool("isThrowing", false);
         }
     }
+    */
 }
