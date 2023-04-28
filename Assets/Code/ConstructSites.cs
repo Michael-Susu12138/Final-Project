@@ -72,9 +72,10 @@ public class ConstructSites : MonoBehaviour
                 Transform build_trans = GameObject.FindWithTag("build_panel").transform;
                 Instantiate(chickenHouselvl1,build_trans.position,Quaternion.identity);
                 // after instantiation of the construction, destroy all the game panels and icons
-                foreach (GameObject obj in GameObject.FindGameObjectsWithTag("chickenIcon")){
-                    Destroy(obj);
-                }
+                // foreach (GameObject obj in GameObject.FindGameObjectsWithTag("chickenIcon")){
+                //     Destroy(obj);
+                // }
+                build_trans.gameObject.SetActive(false);
                 if(construct_site.activeSelf){
                     construct_site.SetActive(false);
                 }
@@ -93,6 +94,23 @@ public class ConstructSites : MonoBehaviour
 
             // construct_done Panel for each construction
             construct_doneBuildPanel(currentLevel); 
+
+            // sheep constructions
+            if (card.gameObject.CompareTag("sheepIcon")){
+                Transform build_trans = GameObject.FindWithTag("build_panel").transform;
+                Instantiate(sheepHouselvl1,build_trans.position,Quaternion.identity);
+                // after instantiation of the construction, destroy all the game panels and icons
+                // foreach (GameObject obj in GameObject.FindGameObjectsWithTag("chickenIcon")){
+                //     Destroy(obj);
+                // }
+                build_trans.gameObject.SetActive(false);
+                if(construct_site.activeSelf){
+                    construct_site.SetActive(false);
+                }
+            }
+            buildPanel_done_construct("sheepHouse_lvl1",card);
+            buildPanel_done_construct("sheepHouse_lvl2",card);
+            buildPanel_done_construct("sheepHouse_lvl3",card);
             
         } else {
             // clicking somewhere else will close the build panel
@@ -131,6 +149,10 @@ public class ConstructSites : MonoBehaviour
             nextLevelPrefab = chickenHouselvl2;
         } else if (currentLevel == "chickHouse_lvl2"){
             nextLevelPrefab = chickenHouselvl3;
+        } else if (currentLevel == "sheepHouse_lvl1"){
+            nextLevelPrefab = sheepHouselvl2;
+        } else if (currentLevel == "sheepHouse_lvl2"){
+            nextLevelPrefab = sheepHouselvl3;
         } else {
             nextLevelPrefab = null;
         }
