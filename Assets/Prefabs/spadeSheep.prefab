@@ -14,7 +14,7 @@ GameObject:
   - component: {fileID: 7949483274620338303}
   - component: {fileID: 2572115635226068612}
   - component: {fileID: 8820188643779979582}
-  m_Layer: 0
+  m_Layer: 5
   m_Name: spadeSheep
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -50,8 +50,8 @@ SortingGroup:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1998935069605281201}
   m_Enabled: 1
-  m_SortingLayerID: 0
-  m_SortingLayer: 0
+  m_SortingLayerID: 1010165599
+  m_SortingLayer: 3
   m_SortingOrder: 0
 --- !u!50 &5746287676419427303
 Rigidbody2D:
@@ -120,9 +120,9 @@ CircleCollider2D:
   m_IsTrigger: 1
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: 0, y: 0.3}
+  m_Offset: {x: -0.2262106, y: 0.2999978}
   serializedVersion: 2
-  m_Radius: 3
+  m_Radius: 4.4829264
 --- !u!1 &2700197538119669084
 GameObject:
   m_ObjectHideFlags: 0
@@ -133,7 +133,7 @@ GameObject:
   m_Component:
   - component: {fileID: 6884355343986194151}
   - component: {fileID: 897762590461780406}
-  m_Layer: 0
+  m_Layer: 5
   m_Name: leftArm
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -217,7 +217,7 @@ GameObject:
   m_Component:
   - component: {fileID: 5526770662261642273}
   - component: {fileID: 6240679657233649812}
-  m_Layer: 0
+  m_Layer: 5
   m_Name: rightLeg
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -301,7 +301,7 @@ GameObject:
   m_Component:
   - component: {fileID: 6793697530355405766}
   - component: {fileID: 6430602436576518140}
-  m_Layer: 0
+  m_Layer: 5
   m_Name: rightArm
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -385,7 +385,7 @@ GameObject:
   m_Component:
   - component: {fileID: 6178949775053751834}
   - component: {fileID: 2268989941618896730}
-  m_Layer: 0
+  m_Layer: 5
   m_Name: body
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -472,7 +472,7 @@ GameObject:
   - component: {fileID: 461536876289655865}
   - component: {fileID: 4407433927415905557}
   - component: {fileID: 882075819617302458}
-  m_Layer: 0
+  m_Layer: 5
   m_Name: spade
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -661,7 +661,7 @@ GameObject:
   m_Component:
   - component: {fileID: 6787788611945524610}
   - component: {fileID: 858420995593583127}
-  m_Layer: 0
+  m_Layer: 5
   m_Name: leftLeg
   m_TagString: Untagged
   m_Icon: {fileID: 0}

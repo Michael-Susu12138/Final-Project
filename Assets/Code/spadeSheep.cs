@@ -26,6 +26,13 @@ public class spadeSheep : MonoBehaviour
     private void OnTriggerEnter2D(Collider2D other) {
         if (other.CompareTag("Enemy")) {
             inRange = true;
+            // last = StartCoroutine(Throw());
+            // print("start");
+            if (other.transform.position.x < transform.position.x){
+                transform.localScale = new Vector2(-1,1);
+            } else {
+                transform.localScale = new Vector2(1,1);
+            }
         }
     }
 

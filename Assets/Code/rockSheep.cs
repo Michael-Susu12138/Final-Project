@@ -6,7 +6,7 @@ public class rockSheep : MonoBehaviour
 {
     public Animator _animator;
     Rigidbody2D _rigidbody2d;
-    GameObject closestEnemy;
+    GameObject closestEnemy = null;
     bool inRange = false; 
 
     void Start() {
@@ -17,6 +17,14 @@ public class rockSheep : MonoBehaviour
     void FixedUpdate() {
         if (inRange == true) {
             _animator.SetBool("isThrowing", true);
+            if(closestEnemy is not null){
+                if (closestEnemy.transform.position.x < transform.position.x){
+                transform.localScale = new Vector2(-1,1);
+                } else {
+                    transform.localScale = new Vector2(1,1);
+                }
+            }
+            
         }
         else {
             _animator.SetBool("isThrowing", false);
@@ -25,7 +33,11 @@ public class rockSheep : MonoBehaviour
 
     private void OnTriggerEnter2D(Collider2D other) {
         if (other.CompareTag("Enemy")) {
+            closestEnemy = other.gameObject;
             inRange = true;
+            // last = StartCoroutine(Throw());
+            // print("start");
+
         }
     }
 
