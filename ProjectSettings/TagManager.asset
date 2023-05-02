@@ -18,6 +18,10 @@ TagManager:
   - sheepHouse_lvl2
   - sheepHouse_lvl3
   - sheepIcon
+  - wolverineRoute
+  - wolverineRoute2
+  - wolverineRoute3
+  - killZone
   layers:
   - Default
   - TransparentFX
