@@ -1,5 +1,5 @@
 fileFormatVersion: 2
-guid: 322069dba146e47fd80054fefb8a476f
+guid: 21584e2d67aac468794143be67ded43c
 TextureImporter:
   internalIDToNameTable: []
   externalObjects: {}
@@ -153,13 +153,13 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: wolverine_0
+      name: wolverine (1)_0
       rect:
         serializedVersion: 2
-        x: 645
-        y: 1399
-        width: 4066
-        height: 4014
+        x: 83
+        y: 6244
+        width: 2827
+        height: 2952
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -167,20 +167,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: f1b1a8728e8954b16a0775bcbd5d383b
-      internalID: 1926658206
+      spriteID: fa11010e3c23249cb8339d86794819f8
+      internalID: -1127205192
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: wolverine_1
+      name: wolverine (1)_1
       rect:
         serializedVersion: 2
-        x: 3531
-        y: 723
-        width: 1050
-        height: 738
+        x: 4691
+        y: 6230
+        width: 2822
+        height: 2966
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -188,20 +188,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 73c66b21d59da436b856e9bfe0178356
-      internalID: 285801247
+      spriteID: 484896512fddf4c75a33f1ee746671c6
+      internalID: -467564824
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: wolverine_2
+      name: wolverine (1)_2
       rect:
         serializedVersion: 2
-        x: 2465
-        y: 255
-        width: 1024
-        height: 946
+        x: 2486
+        y: 5555
+        width: 734
+        height: 518
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -209,8 +209,50 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 2e634befae54844e1a5ac8b1f01be9fe
-      internalID: 2095838130
+      spriteID: d647c5644151347cfb9efbf0bb4e5c28
+      internalID: -361205451
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: wolverine (1)_3
+      rect:
+        serializedVersion: 2
+        x: 1703
+        y: 4781
+        width: 716
+        height: 662
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 8989e8be103e44d9289a123501fa1e0d
+      internalID: 267847083
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: wolverine (1)_4
+      rect:
+        serializedVersion: 2
+        x: 83
+        y: 1622
+        width: 2822
+        height: 2966
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 94a1f1f2757c44ad1a343e461b890747
+      internalID: 1448471982
       vertices: []
       indices: 
       edges: []
@@ -226,9 +268,11 @@ TextureImporter:
     weights: []
     secondaryTextures: []
     nameFileIdTable:
-      wolverine_2: 2095838130
-      wolverine_1: 285801247
-      wolverine_0: 1926658206
+      wolverine (1)_3: 267847083
+      wolverine (1)_2: -361205451
+      wolverine (1)_0: -1127205192
+      wolverine (1)_1: -467564824
+      wolverine (1)_4: 1448471982
   spritePackingTag: 
   pSDRemoveMatte: 0
   pSDShowRemoveMatteOption: 0

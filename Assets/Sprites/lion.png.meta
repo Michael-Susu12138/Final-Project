@@ -1,5 +1,5 @@
 fileFormatVersion: 2
-guid: f10abcbc4bc874d118372cf664bbc6f7
+guid: a8f8ccf8138894884bc7ded3bbca26eb
 TextureImporter:
   internalIDToNameTable: []
   externalObjects: {}
@@ -156,10 +156,10 @@ TextureImporter:
       name: lion_0
       rect:
         serializedVersion: 2
-        x: 1607
-        y: 2647
-        width: 3182
-        height: 2896
+        x: 328
+        y: 10104
+        width: 3192
+        height: 2906
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -167,8 +167,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 8242637620ee94e8eb7613e132c648f6
-      internalID: -259029713
+      spriteID: 118e673ef6495479088ca2c1e642280f
+      internalID: 1076237036
       vertices: []
       indices: 
       edges: []
@@ -177,10 +177,10 @@ TextureImporter:
       name: lion_1
       rect:
         serializedVersion: 2
-        x: 2387
-        y: 1737
-        width: 1544
-        height: 582
+        x: 6984
+        y: 10104
+        width: 3192
+        height: 2906
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -188,8 +188,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: b443fa4aedde241aa9f0e2b2e6c76833
-      internalID: -1835349899
+      spriteID: 9107473efc2cb42c79b36fa45a2f55ae
+      internalID: -1483941324
       vertices: []
       indices: 
       edges: []
@@ -198,19 +198,61 @@ TextureImporter:
       name: lion_2
       rect:
         serializedVersion: 2
-        x: 2387
-        y: 567
-        width: 1674
-        height: 582
+        x: 2382
+        y: 8388
+        width: 1554
+        height: 592
       alignment: 0
       pivot: {x: 0, y: 0}
-      border: {x: 0, y: 11, z: 0, w: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: ed5ca283d087b4e5aaf947d3e56fd7a6
-      internalID: 514916223
+      spriteID: 9e221a6f1797548c3bb6a5e56eb29330
+      internalID: 1560015453
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: lion_3
+      rect:
+        serializedVersion: 2
+        x: 2382
+        y: 7218
+        width: 1684
+        height: 592
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 2523e8891265141fdba1fc3eea1ef6ef
+      internalID: 973904804
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: lion_4
+      rect:
+        serializedVersion: 2
+        x: 328
+        y: 3448
+        width: 3192
+        height: 2906
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 8ce975df860154e448e4536435ab0fbd
+      internalID: -1400965465
       vertices: []
       indices: 
       edges: []
@@ -226,9 +268,11 @@ TextureImporter:
     weights: []
     secondaryTextures: []
     nameFileIdTable:
-      lion_0: -259029713
-      lion_2: 514916223
-      lion_1: -1835349899
+      lion_4: -1400965465
+      lion_0: 1076237036
+      lion_2: 1560015453
+      lion_1: -1483941324
+      lion_3: 973904804
   spritePackingTag: 
   pSDRemoveMatte: 0
   pSDShowRemoveMatteOption: 0
