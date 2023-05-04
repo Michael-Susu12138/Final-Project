@@ -14,6 +14,7 @@ public class ConstructSites : MonoBehaviour
     public GameObject gamePanel,chickenHouselvl1, chickenHouselvl2,chickenHouselvl3,done_gamePanel,destructionPanel,sheepHouselvl1, sheepHouselvl2,sheepHouselvl3;
     GameObject construct_site,buildPanel,Construction;
     string currentLevel;
+    bool isCoroutineRunning = false;
     private void Start() {
         cam = Camera.main;
 
@@ -21,50 +22,59 @@ public class ConstructSites : MonoBehaviour
 
     // Update is called once per frame
     void Update()
-    {  
-# if UNITY_STANDALONE || UNITY_EDITOR
-        if(Input.GetMouseButtonDown(0)){
-            // GameObject buildPanel = GameObject.FindGameObjectWithTag("build_panel");
-            BuildPanel(Input.mousePosition);
-        }
-# endif
+    {
+        if (!isCoroutineRunning)
+        {
+#if UNITY_STANDALONE || UNITY_EDITOR
+            if (Input.GetMouseButtonDown(0))
+            {
+                StartCoroutine(CheckInput(Input.mousePosition));
+            }
+#endif
 
 #if UNITY_IPHONE || UNITY_ANDROID
-
-        //Touch Ver
-        if (Input.touchCount > 0)
-        {
-            Touch touch = Input.GetTouch(0);
-            if (touch.phase == TouchPhase.Began)
+            if (Input.touchCount > 0)
             {
-                BuildPanel(touch.position);
+                Touch touch = Input.GetTouch(0);
+                if (touch.phase == TouchPhase.Ended)
+                {
+                    StartCoroutine(CheckInput(touch.position));
+                }
             }
-        }
 #endif
+        }
     }
 
+    IEnumerator CheckInput(Vector2 inputPosition)
+    {
+        isCoroutineRunning = true;
+        BuildPanel(inputPosition);
+        yield return new WaitForSeconds(0.2f);
+        isCoroutineRunning = false;
+    }
+
+    // private bool input_handled;
     void BuildPanel(Vector2 touchPos){
+
+        // if (input_handled == true){
+        //     return;
+        // }
+
         Vector2 worldPos = cam.ScreenToWorldPoint(touchPos);
 
         if (Physics2D.OverlapPoint(worldPos, UILayer))
         {            
             card = Physics2D.OverlapPoint(worldPos, UILayer).transform;
             if(card.gameObject.CompareTag("construct_sites")){
-                
                 // create build_panel, if it exists, turn off the build panel
-                if (GameObject.FindWithTag("build_panel") != null){
-                    Destroy(GameObject.FindWithTag("build_panel"));
-                } else { 
-                    
-                    buildPanel = Instantiate(gamePanel,card.position,Quaternion.identity);
-                    Debug.Log(buildPanel.transform.position);
+                Debug.Log("Hit");
+                buildPanel = Instantiate(gamePanel, card.position, Quaternion.identity);
+                  
 
-                }
                 construct_site = card.gameObject;    
             } else {
-                if ( buildPanel != null){
-                    Destroy(buildPanel);
-                }
+                // clicking somewhere else will close the build panel
+                
             }
             
             // chicken constructions
@@ -118,6 +128,7 @@ public class ConstructSites : MonoBehaviour
                 buildPanel.SetActive(false);
             }
         }
+        // input_handled = true;
         
         
     }
