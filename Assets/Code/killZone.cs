@@ -11,7 +11,7 @@ public class killZone : MonoBehaviour
 
     void OnTriggerEnter2D(Collider2D other) {
         if(tagsToDestroy.Contains(other.tag)) {
-            Destroy(other.gameObject);
+            //Destroy(other.gameObject);
             SceneManager.LoadScene(levelToLoad);
         }
     }
