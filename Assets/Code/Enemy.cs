@@ -6,11 +6,11 @@ public class Enemy : MonoBehaviour
 {
     public int hp = 9; //hp is the max health of this enemy
     public int currentHealth;
-    //public HealthBar healthBar;
+    public HealthBar healthBar;
     void Start()
     {
         currentHealth = hp;
-        //healthBar.SetMaxHealth(hp);
+        healthBar.SetMaxHealth(hp);
     }
 
     void Update()
@@ -23,7 +23,7 @@ public class Enemy : MonoBehaviour
 
     public void TakeDamage(int amount){
         currentHealth -= amount;
-        //healthBar.SetHealth(currentHealth);
+        healthBar.SetHealth(currentHealth);
         if(currentHealth<=0){
             Destroy(gameObject);
         }

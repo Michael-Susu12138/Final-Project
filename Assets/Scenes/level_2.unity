@@ -3411,7 +3411,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5444748738428861757, guid: 87d5dad2a5ee545f7bf2e2f7c89ea7f5, type: 3}
       propertyPath: routeTag
-      value: wolverineRoute2
+      value: wolverineRoute
       objectReference: {fileID: 0}
     - target: {fileID: 8021386104874871876, guid: 87d5dad2a5ee545f7bf2e2f7c89ea7f5, type: 3}
       propertyPath: m_RootOrder
@@ -3419,11 +3419,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8021386104874871876, guid: 87d5dad2a5ee545f7bf2e2f7c89ea7f5, type: 3}
       propertyPath: m_LocalPosition.x
-      value: -12.2
+      value: -11.38
       objectReference: {fileID: 0}
     - target: {fileID: 8021386104874871876, guid: 87d5dad2a5ee545f7bf2e2f7c89ea7f5, type: 3}
       propertyPath: m_LocalPosition.y
-      value: -3.3
+      value: 3.79
       objectReference: {fileID: 0}
     - target: {fileID: 8021386104874871876, guid: 87d5dad2a5ee545f7bf2e2f7c89ea7f5, type: 3}
       propertyPath: m_LocalPosition.z

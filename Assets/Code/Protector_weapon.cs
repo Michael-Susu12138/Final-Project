@@ -13,7 +13,7 @@ public class Protector_weapon : MonoBehaviour
     private void OnTriggerEnter2D(Collider2D other) {
         if (other.CompareTag("Enemy")) {
             enemy = other.GetComponent<Enemy>();  //?
-            enemy.TakeDamage(10);
+            enemy.TakeDamage(5);
             //Destroy(other.gameObject);
         }
     }
