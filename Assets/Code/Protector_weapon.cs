@@ -16,4 +16,11 @@ public class Protector_weapon : MonoBehaviour
             Destroy(other.gameObject);
         }
     }
+
+    // private void OnCollisionEnter2D(Collision2D collision) {
+    //     if (collision.collider.gameObject.tag == "Enemy") {
+            
+    //         Destroy(collision.gameObject);
+    //     }
+    // }
 }
