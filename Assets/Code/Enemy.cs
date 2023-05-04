@@ -5,13 +5,12 @@ using UnityEngine;
 public class Enemy : MonoBehaviour
 {
     public int hp = 9;
-    // Start is called before the first frame update
+    public HealthBar healthBar;
     void Start()
     {
-        
+        healthBar.SetMaxHealth(hp);
     }
 
-    // Update is called once per frame
     void Update()
     {
         if(hp < 0){
