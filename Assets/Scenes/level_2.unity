@@ -3315,6 +3315,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 1470180689149982485, guid: ae4ed1c463ca140fcb1c2d1a1572e899, type: 3}
+      propertyPath: soundDelay
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 3061116435150405772, guid: ae4ed1c463ca140fcb1c2d1a1572e899, type: 3}
       propertyPath: m_AnchorMax.x
       value: 0

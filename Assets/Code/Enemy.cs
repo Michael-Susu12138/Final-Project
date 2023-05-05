@@ -28,8 +28,9 @@ public class Enemy : MonoBehaviour
     public void TakeDamage(int amount){
         currentHealth -= amount;
         healthBar.SetHealth(currentHealth);
+        audioSource.PlayOneShot(destroySound);
         if(currentHealth<=0){
-            audioSource.PlayOneShot(destroySound);
+            
             Destroy(gameObject);
         }
     }
