@@ -2,112 +2,104 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-//TODO:
-// text on health bar
-// health bar in canvas
-// canvas top left
-
-
-
 public class FighterBehavior : MonoBehaviour
 {
-    public float x_speed, y_speed;
-    float lookDst = 1.6f;
-    public int damage = 1;
-    public bool fight = false;
-    Rigidbody2D _rigidbody2D;
-    ArrayList Enemies = new ArrayList();
-    
-    
-    // // Start is called before the first frame update
-    void Start()
+    public float attackSpeed = 1f;
+    public int damage = 3;
+    public LayerMask enemyLayer;
+    public float searchRadius = 10f;
+    public float moveSpeed = 2f;
+    public GameObject fighterPrefab;
+    public float respawnTime = 3f;
+    int health = 9;
+    private Transform target;
+
+    private void Start()
     {
-        _rigidbody2D = GetComponent<Rigidbody2D>();
-        // Enemies = GameObject.FindGameObjectWithTag("Enemy");
-        foreach(GameObject Enemy in GameObject.FindGameObjectsWithTag("Enemy")){
-            Enemies.Add(Enemy.transform);
+        StartCoroutine(FindNearestEnemy());
+        StartCoroutine(AttackNearestEnemy());
+    }
+
+    private void Update()
+    {
+        if (target != null)
+        {
+            MoveTowardsTarget();
+        }
+        if(health <= 0)
+        {
+            StartCoroutine(Respawn());
         }
     }
 
-    // // Update is called once per frame
-    void Update()
+    private IEnumerator Respawn()
     {
-        if(!fight){
-            behavior();   
-        } else {
-            attack();
-        }
+        Destroy(gameObject);
+        yield return new WaitForSeconds(respawnTime);
+        Instantiate(fighterPrefab, transform.position, Quaternion.identity);
         
     }
 
-    void behavior(){
-        if (Vector2.Distance(transform.position,GetClosestEnemy().transform.position) < lookDst){
-            if(GetClosestEnemy().transform.position.x > transform.position.x && transform.localScale.x < 0 || 
-                GetClosestEnemy().transform.position.x < transform.position.x && transform.localScale.x > 0){
-                    transform.localScale *= new Vector2(-1,1);
+    private IEnumerator FindNearestEnemy()
+    {
+        while (true)
+        {
+            Collider2D[] enemiesInRange = Physics2D.OverlapCircleAll(transform.position, searchRadius, enemyLayer);
+
+            if (enemiesInRange.Length > 0)
+            {
+                Collider2D nearestEnemy = enemiesInRange[0];
+                float minDistance = Vector2.Distance(transform.position, nearestEnemy.transform.position);
+
+                foreach (Collider2D enemy in enemiesInRange)
+                {
+                    Enemy enemyComponent = enemy.GetComponent<Enemy>();
+                    if (enemyComponent.attacker != null) continue;
+
+                    float distance = Vector2.Distance(transform.position, enemy.transform.position);
+                    if (distance < minDistance)
+                    {
+                        minDistance = distance;
+                        nearestEnemy = enemy;
+                    }
                 }
 
-            Vector2 dir = (GetClosestEnemy().transform.position - transform.position);
-            
-            _rigidbody2D.velocity = new Vector2(dir.normalized.x * x_speed, dir.normalized.y*y_speed);
-            
-        }
-    }
-    void attack(){
-        var closestEnemy = GetClosestEnemy();
-        Enemy closestEnemyScript = closestEnemy.GetComponent<Enemy>();  //?
-        closestEnemyScript.TakeDamage(damage);
-    }
-
-    // Transform GetClosestEnemy(ArrayList lst)
-    // {
-    //     Transform tMin = null;
-    //     float minDist = Mathf.Infinity;
-    //     Vector2 currentPos = transform.position;
-    //     foreach (Transform t in lst)
-    //     {
-    //         float dist = Vector2.Distance(t.position, currentPos);
-    //         if (dist < minDist)
-    //         {
-    //             tMin = t;
-    //             minDist = dist;
-    //         }
-    //     }
-    //     return tMin;
-    // }
-
-    GameObject GetClosestEnemy() {
-        GameObject[] gos;
-        gos = GameObject.FindGameObjectsWithTag("Enemy");
-        GameObject closest = null;
-        float distance = Mathf.Infinity;
-        Vector3 position = gameObject.transform.position;
-        foreach (GameObject go in gos) {
-            Vector3 diff = go.transform.position - position;
-            float curDistance = diff.sqrMagnitude;
-            if (curDistance < distance) {
-                closest = go;
-                distance = curDistance;
+                target = nearestEnemy.transform;
+                nearestEnemy.GetComponent<Enemy>().SetAttacker(GetComponent<FighterBehavior>()); // Updated this line
             }
-        }
-        
-        if (distance < lookDst) {
-            return closest;
-        }
-        else {
-            return null;
+            else
+            {
+                target = null;
+            }
+
+            yield return new WaitForSeconds(0.5f);
         }
     }
 
-    // ArrayList UpdateEnemies(ArrayList lst, Transform Enemy){
-    //     int removed_ind = lst.IndexOf(Enemy);
-    //     lst.RemoveAt(removed_ind);
-    //     return lst;
-    // }
 
-    private void OnTriggerEnter2D(Collider2D other) {
-        if(other.CompareTag("Enemy")){
-            fight = true;
+    private IEnumerator AttackNearestEnemy()
+    {
+        while (true)
+        {
+            if (target != null)
+            {
+                float distance = Vector2.Distance(transform.position, target.position);
+                if (distance <= 1f)
+                {
+                    target.GetComponent<Enemy>().TakeDamage(damage);
+                    health-=2;
+                }
+            }
+
+            yield return new WaitForSeconds(attackSpeed);
+        }
+    }
+
+    private void MoveTowardsTarget()
+    {
+        if (target != null)
+        {
+            transform.position = Vector2.MoveTowards(transform.position, target.position, moveSpeed * Time.deltaTime);
         }
     }
 }

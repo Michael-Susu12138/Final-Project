@@ -5,6 +5,7 @@ using UnityEngine;
 public class ChickenHouseBehavior : MonoBehaviour
 {
     public GameObject chick_lvl1_fighter;
+    public int numFighters;
     private List<GameObject> chickenFighters = new List<GameObject>();
     ArrayList wayPoints = new ArrayList();
     
@@ -19,12 +20,15 @@ public class ChickenHouseBehavior : MonoBehaviour
 
     void SpawnChickenFighters()
     {
-        Vector2 spawnPos = GetClosestWayPoint(wayPoints).position;
-        chickenFighters.Add(Instantiate(chick_lvl1_fighter, spawnPos, Quaternion.identity));
-        Vector2 second_spawnPos = new Vector2(spawnPos.x - 0.5f, spawnPos.y - 0.5f);
-        chickenFighters.Add(Instantiate(chick_lvl1_fighter, second_spawnPos, Quaternion.identity));
-        Vector2 third_spawnPos = new Vector2(spawnPos.x + 0.5f, spawnPos.y - 0.5f);
-        chickenFighters.Add(Instantiate(chick_lvl1_fighter, third_spawnPos, Quaternion.identity));
+        float spawnAreaSize = 0.5f;
+        Vector2 spawnCenter = GetClosestWayPoint(wayPoints).position;
+
+        for (int i = 0; i < numFighters; i++)
+        {
+            Vector2 spawnOffset = new Vector2(Random.Range(-spawnAreaSize / 2, spawnAreaSize / 2), Random.Range(-spawnAreaSize / 2, spawnAreaSize / 2));
+            Vector2 spawnPos = spawnCenter + spawnOffset;
+            chickenFighters.Add(Instantiate(chick_lvl1_fighter, spawnPos, Quaternion.identity));
+        }
     }
 
     void OnDestroy()
