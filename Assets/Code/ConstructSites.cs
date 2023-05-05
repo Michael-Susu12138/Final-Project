@@ -189,15 +189,34 @@ public class ConstructSites : MonoBehaviour
 
     private void construct_doneBuildPanel(string currentLevel){
         GameObject nextLevelPrefab = null;
-        if (currentLevel == "chickHouse_lvl1"){
+        bool isMaxLevel = false;
+
+        if (currentLevel == "chickHouse_lvl1")
+        {
             nextLevelPrefab = chickenHouselvl2;
-        } else if (currentLevel == "chickHouse_lvl2"){
+        }
+        else if (currentLevel == "chickHouse_lvl2")
+        {
             nextLevelPrefab = chickenHouselvl3;
-        } else if (currentLevel == "sheepHouse_lvl1"){
+        }
+        else if (currentLevel == "chickHouse_lvl3")
+        {
+            isMaxLevel = true;
+        }
+        else if (currentLevel == "sheepHouse_lvl1")
+        {
             nextLevelPrefab = sheepHouselvl2;
-        } else if (currentLevel == "sheepHouse_lvl2"){
+        }
+        else if (currentLevel == "sheepHouse_lvl2")
+        {
             nextLevelPrefab = sheepHouselvl3;
-        } else {
+        }
+        else if (currentLevel == "sheepHouse_lvl3")
+        {
+            isMaxLevel = true;
+        }
+        else
+        {
             nextLevelPrefab = null;
         }
         if(card.gameObject.CompareTag("Destruction")){
@@ -216,24 +235,32 @@ public class ConstructSites : MonoBehaviour
             _gameManager.addGold(30);
             Destroy(Construction);
         } 
-        if(card.gameObject.CompareTag("LevelUp")){
-            // 50 for level up
-            if(_gameManager.gold >= 50){
+        if (card.gameObject.CompareTag("LevelUp"))
+        {
+            // Check if the construction is not at max level
+            if (!isMaxLevel && _gameManager.gold >= 50)
+            {
                 _gameManager.useGold(50);
-                Transform build_trans = GameObject.FindWithTag("build_panel").transform; 
-                GameObject nl = Instantiate(nextLevelPrefab,build_trans.position,Quaternion.identity);
-                nl.transform.name = "nl-" + build_trans.name;
-                if (nl.transform.childCount > 0){
-                    nl.transform.GetChild(0).transform.name = "nl-" + build_trans.name;
+                Transform build_trans = GameObject.FindWithTag("build_panel").transform;
+
+                // Only instantiate the next level prefab if it exists
+                if (nextLevelPrefab != null)
+                {
+                    GameObject nl = Instantiate(nextLevelPrefab, build_trans.position, Quaternion.identity);
+                    nl.transform.name = "nl-" + build_trans.name;
+                    if (nl.transform.childCount > 0)
+                    {
+                        nl.transform.GetChild(0).transform.name = "nl-" + build_trans.name;
+                    }
                 }
-                
-                // destroy its parent
-                if (Construction.transform.parent != null){
+
+                // Destroy its parent
+                if (Construction.transform.parent != null)
+                {
                     Destroy(Construction.transform.parent.gameObject);
                 }
                 Destroy(Construction);
             }
-            
         }
     }
 }
