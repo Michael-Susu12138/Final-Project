@@ -9,7 +9,7 @@ public class TutorialLevelSpawning : MonoBehaviour
     IEnumerator Start()
     {
         Enemy.GetComponent<WolverineMove>().routeTag = "wayPoints";
-        Enemy.GetComponent<Enemy>().nextLevelToLoad = "level_1";
+        Enemy.GetComponent<Enemy>().nextLevelToLoad = "Level_1";
         _gameManager = GameObject.FindObjectOfType<GameManager>();
         var count = 0;
         var spawnPos = new Vector2(-4.05f,4.38f);

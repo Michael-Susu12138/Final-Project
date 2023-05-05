@@ -34,8 +34,9 @@ public class GameManager : MonoBehaviour
         gold = 2000;
         Debug.Log(gold);
         goldUI.text = "GOLD: " + gold;
+
         healthUI.text = "HEALTH: " + health.ToString() + "/15";
-        waveUI.text = "WAVES: " + waves + "/3";
+        waveUI.text = "WAVES: " + waves + "/7";
     }
     public void reduceHealth(int val) {
         health -= val;
@@ -51,13 +52,14 @@ public class GameManager : MonoBehaviour
     }
     public void increaseWave(){
         waves += 1;
-        waveUI.text = "WAVES: " + waves + "/3";
+        waveUI.text = "WAVES: " + waves + "/7";
     }
 
     void Update()
     {
-        if(waves>=3){
+        if(waves>=7){
             lastLevel = true;
         }
+        
     }
 }

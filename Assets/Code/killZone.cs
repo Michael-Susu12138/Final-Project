@@ -13,18 +13,18 @@ public class killZone : MonoBehaviour
     void Start() {
         _gameManager = GameObject.FindObjectOfType<GameManager>();
     }
-    void OnTriggerEnter2D(Collider2D other) {
-        if(tagsToDestroy.Contains(other.tag)) {
-            Destroy(other.gameObject);
-            if(_gameManager.lastLevel){
-                SceneManager.LoadScene(nextLevelToLoad);
-            }
-            _gameManager.reduceHealth(1);
-            if(_gameManager.health <= 0){
-                SceneManager.LoadScene(failLevelToLoad);
-            }
+    // void OnTriggerEnter2D(Collider2D other) {
+    //     if(other.CompareTag("Enemy")) {
+    //         Destroy(other.gameObject);
+    //         if(_gameManager.lastLevel){
+    //             SceneManager.LoadScene(nextLevelToLoad);
+    //         }
+    //         _gameManager.reduceHealth(1);
+    //         if(_gameManager.health <= 0){
+    //             SceneManager.LoadScene(failLevelToLoad);
+    //         }
             
-        }
-    }
+    //     }
+    // }
 
 }
