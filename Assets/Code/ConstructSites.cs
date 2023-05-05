@@ -68,13 +68,27 @@ public class ConstructSites : MonoBehaviour
             if(card.gameObject.CompareTag("construct_sites")){
                 // create build_panel, if it exists, turn off the build panel
                 Debug.Log("Hit");
-                buildPanel = Instantiate(gamePanel, card.position, Quaternion.identity);
-                  
+                if(buildPanel != null && buildPanel.transform.position == card.position)
+                {
+                    Destroy(buildPanel);
+                    buildPanel = null;
+                }
+                else
+                {
+                    if(buildPanel != null)
+                    {
+                        Destroy(buildPanel);
+                    }
+                    buildPanel = Instantiate(gamePanel, card.position, Quaternion.identity);
+                }
+                    
 
                 construct_site = card.gameObject;    
             } else {
                 // clicking somewhere else will close the build panel
-                
+                if (buildPanel != null){
+                    Destroy(buildPanel);
+                }
             }
             
             // chicken constructions
@@ -125,7 +139,7 @@ public class ConstructSites : MonoBehaviour
         } else {
             // clicking somewhere else will close the build panel
             if (buildPanel != null){
-                buildPanel.SetActive(false);
+                Destroy(buildPanel);
             }
         }
         // input_handled = true;
