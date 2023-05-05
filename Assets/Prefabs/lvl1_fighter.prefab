@@ -161,6 +161,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 65518a97a3185164bad468fc30dbc768, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  x_speed: 1
-  y_speed: 1
-  fight: 0
+  attackSpeed: 1
+  damage: 3
+  enemyLayer:
+    serializedVersion: 2
+    m_Bits: 64
+  searchRadius: 10

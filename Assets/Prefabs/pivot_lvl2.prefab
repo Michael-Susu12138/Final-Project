@@ -11,6 +11,7 @@ GameObject:
   - component: {fileID: 2533159645233442119}
   - component: {fileID: 2533159645233442118}
   - component: {fileID: 2533159645233442112}
+  - component: {fileID: 8574355394370298671}
   m_Layer: 5
   m_Name: chickenHouselvl2
   m_TagString: chickHouse_lvl2
@@ -142,6 +143,20 @@ PolygonCollider2D:
       - {x: 0.114999995, y: -1.0849999}
       - {x: 0.16499999, y: -1.105}
       - {x: 0.415, y: -1.105}
+--- !u!114 &8574355394370298671
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2533159645233442117}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3157b930124ee1f4d8c857658dbf3aad, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  chick_lvl1_fighter: {fileID: 6012204429875846339, guid: aa49ce532a0936b4f8c2fc1d09e6be09, type: 3}
+  numFighters: 4
 --- !u!1 &2533159646602519340
 GameObject:
   m_ObjectHideFlags: 0
@@ -152,6 +167,7 @@ GameObject:
   m_Component:
   - component: {fileID: 2533159646602519341}
   - component: {fileID: 2533159646602519342}
+  - component: {fileID: 5934442442085494800}
   m_Layer: 5
   m_Name: pivot_lvl2
   m_TagString: Untagged
@@ -227,3 +243,17 @@ SpriteRenderer:
   m_WasSpriteAssigned: 0
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!114 &5934442442085494800
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2533159646602519340}
+  m_Enabled: 0
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3157b930124ee1f4d8c857658dbf3aad, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  chick_lvl1_fighter: {fileID: 6012204429875846339, guid: aa49ce532a0936b4f8c2fc1d09e6be09, type: 3}
+  numFighters: 4

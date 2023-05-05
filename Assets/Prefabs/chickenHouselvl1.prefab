@@ -149,3 +149,4 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   chick_lvl1_fighter: {fileID: 6012204429875846339, guid: aa49ce532a0936b4f8c2fc1d09e6be09, type: 3}
+  numFighters: 2

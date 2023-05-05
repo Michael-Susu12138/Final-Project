@@ -15,7 +15,7 @@ GameObject:
   - component: {fileID: 7764278222568534236}
   - component: {fileID: 7764278222568534237}
   - component: {fileID: -109779153517915653}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: panther_withHB
   m_TagString: Enemy
   m_Icon: {fileID: 0}
@@ -128,6 +128,7 @@ MonoBehaviour:
   healthBar: {fileID: 8220923889640484817}
   destroySound: {fileID: 8300000, guid: eda3956d1a94842ffb9a88d8d01333f8, type: 3}
   soundDelay: 1
+  nextLevelToLoad: 
 --- !u!60 &7764278222568534236
 PolygonCollider2D:
   m_ObjectHideFlags: 0
@@ -544,8 +545,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   speed: 2
   routeTag: wayPoints
-  speed: 3
-  routeTag: wolverineRoute2
 --- !u!82 &-109779153517915653
 AudioSource:
   m_ObjectHideFlags: 0
