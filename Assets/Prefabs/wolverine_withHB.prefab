@@ -16,7 +16,7 @@ GameObject:
   - component: {fileID: 3061116434684221143}
   - component: {fileID: 3061116434684221090}
   m_Layer: 5
-  m_Name: wolverine (1)
+  m_Name: wolverine_withHB
   m_TagString: Enemy
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
