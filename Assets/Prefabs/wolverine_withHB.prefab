@@ -127,6 +127,8 @@ MonoBehaviour:
   hp: 10
   currentHealth: 0
   healthBar: {fileID: 3061116435468410124}
+  destroySound: {fileID: 8300000, guid: 7671105c99d5143b4ab3b4d7341b4d80, type: 3}
+  soundDelay: 1
 --- !u!60 &3061116434684221100
 PolygonCollider2D:
   m_ObjectHideFlags: 0
@@ -374,7 +376,7 @@ AudioSource:
   m_Enabled: 1
   serializedVersion: 4
   OutputAudioMixerGroup: {fileID: 0}
-  m_audioClip: {fileID: 8300000, guid: 7671105c99d5143b4ab3b4d7341b4d80, type: 3}
+  m_audioClip: {fileID: 0}
   m_PlayOnAwake: 1
   m_Volume: 1
   m_Pitch: 1
