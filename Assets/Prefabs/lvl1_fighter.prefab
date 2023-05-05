@@ -15,7 +15,7 @@ GameObject:
   - component: {fileID: 6012204429875846392}
   m_Layer: 5
   m_Name: lvl1_fighter
-  m_TagString: Untagged
+  m_TagString: Fighter
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0

@@ -723,13 +723,10 @@ MonoBehaviour:
   m_GameObject: {fileID: 8039107761783257859}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: c7f92bc6c37e5ed498cc79b7545d2309, type: 3}
+  m_Script: {fileID: 11500000, guid: 0ec48cc31115450418181bd4d550fed9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  weapon: {fileID: 651188454633471506}
-  _animator: {fileID: 0}
-  weaponPoint: {fileID: 8112304735946575862}
-  range: 7
+  _animator: {fileID: 6037582857285416496}
 --- !u!1 &8112304735946575862
 GameObject:
   m_ObjectHideFlags: 0
