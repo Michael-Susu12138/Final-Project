@@ -9,7 +9,7 @@ public class GameManager : MonoBehaviour
 {
     public int health = 15;
     public int gold;
-    int waves = 0;
+    int waves = 1;
     public bool lastLevel = false;
     public string levelToLoad;
     TMP_Text goldUI;
