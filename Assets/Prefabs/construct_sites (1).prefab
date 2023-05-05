@@ -11,6 +11,7 @@ GameObject:
   - component: {fileID: 7829828706056962091}
   - component: {fileID: 7829828706056962088}
   - component: {fileID: 7647949991986137586}
+  - component: {fileID: -7876742722653404147}
   m_Layer: 5
   m_Name: construct_sites (1)
   m_TagString: construct_sites
@@ -144,3 +145,15 @@ PolygonCollider2D:
       - {x: 0.4632713, y: -0.9299601}
       - {x: 0.5332322, y: -0.96494055}
       - {x: 0.743115, y: -0.9766007}
+--- !u!114 &-7876742722653404147
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7829828706056962089}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fa6a6f687ad3d024ca0effe01de26503, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
