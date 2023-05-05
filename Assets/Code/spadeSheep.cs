@@ -21,6 +21,7 @@ public class spadeSheep : MonoBehaviour
         _animator = GetComponent<Animator>();
         _rigidbody2d = GetComponent<Rigidbody2D>();
         SetAttackSpeed(levelAS);
+        GetComponent<SpadeProjectile>().damage += levelAS;
 
     }
 

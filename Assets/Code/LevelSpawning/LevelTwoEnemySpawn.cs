@@ -14,13 +14,15 @@ public class LevelTwoEnemySpawn : MonoBehaviour
         Enemy2.GetComponent<WolverineMove>().routeTag = "wolverineRoute";
         Enemy2.GetComponent<Enemy>().nextLevelToLoad = "Win";
 
-        Enemy3.GetComponent<WolverineMove>().routeTag = "wolverineRoute2";
+        Enemy3.GetComponent<WolverineMove>().routeTag = "wayPoints";
         Enemy3.GetComponent<Enemy>().nextLevelToLoad = "Win";
         _gameManager = GameObject.FindObjectOfType<GameManager>();
         var count = 0;
         var spawnPos = new Vector2(-10.01f,3.62f);
         while(true){
+           
             while(count < 1){
+            
                 Instantiate(Enemy1, spawnPos, Quaternion.identity);
                 yield return new WaitForSeconds(.7f);
                 Instantiate(Enemy2, spawnPos, Quaternion.identity);
@@ -36,6 +38,8 @@ public class LevelTwoEnemySpawn : MonoBehaviour
                 break;
             }
 
+            
+            
         }
         
     }
