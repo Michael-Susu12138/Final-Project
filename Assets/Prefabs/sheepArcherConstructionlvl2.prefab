@@ -235,3 +235,4 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   sheepArcher_prefab: {fileID: 1998935069605281201, guid: 61f3111e7a5c90b44bc3216cf102f35b, type: 3}
+  level: 2
