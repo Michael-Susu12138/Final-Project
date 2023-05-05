@@ -19,21 +19,22 @@ public class GameManager : MonoBehaviour
     public bool nextWave = true;
     public Camera mainCamera;
 
-    private void Awake()
-    {
-        if (FindObjectsOfType<GameManager>().Length > 1)
-        {
-            Destroy(gameObject);
-        }
-        else
-        {
-            DontDestroyOnLoad(gameObject);
-            mainCamera = Camera.main;
-        }
-    }
+    // private void Awake()
+    // {
+    //     if (FindObjectsOfType<GameManager>().Length > 1)
+    //     {
+    //         Destroy(gameObject);
+    //     }
+    //     else
+    //     {
+    //         DontDestroyOnLoad(gameObject);
+    //         mainCamera = Camera.main;
+    //     }
+    // }
 
     void Start()
     {
+        mainCamera = Camera.main;
         goldUI = GameObject.FindGameObjectWithTag("GoldUI").GetComponent<TextMeshProUGUI>();
         healthUI = GameObject.FindGameObjectWithTag("HealthUI").GetComponent<TextMeshProUGUI>();
         waveUI = GameObject.FindGameObjectWithTag("WaveUI").GetComponent<TextMeshProUGUI>();
