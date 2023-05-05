@@ -34,13 +34,28 @@ public class Enemy : MonoBehaviour
         audioSource.PlayOneShot(destroySound);
         if(currentHealth<=0){
             
-            Destroy(gameObject);
+            
             if(_gameManager.lastLevel){
                 SceneManager.LoadScene(nextLevelToLoad);
             }
             _gameManager.addGold(20);
+            Destroy(gameObject);
         }
         
+    }
+
+    private void OnTriggerEnter2D(Collider2D other) {
+        if(other.CompareTag("killZone")){
+            _gameManager.addGold(20);
+            if (_gameManager.lastLevel && _gameManager.health > 0){
+                SceneManager.LoadScene(nextLevelToLoad);
+            }
+            _gameManager.reduceHealth(1);
+            Destroy(gameObject);
+            if(_gameManager.health <= 0){
+                SceneManager.LoadScene("Fail");
+            }
+        }
     }
     
 }

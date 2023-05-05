@@ -12,6 +12,12 @@ EditorBuildSettings:
     path: Assets/Scenes/FinishedScenes/Tutorial.unity
     guid: e2b113c571b99ec419fcdea215331538
   - enabled: 1
+    path: Assets/Scenes/FinishedScenes/level_1.unity
+    guid: 974fd6d221c75334787148d604d7a931
+  - enabled: 1
+    path: Assets/Scenes/FinishedScenes/level_2.unity
+    guid: 4e13d98ce6071b54fad62705ea11178d
+  - enabled: 1
     path: Assets/Scenes/FinishedScenes/Win.unity
     guid: 686384663ea1c462784128d3b100fefd
   - enabled: 1
