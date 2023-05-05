@@ -17,7 +17,8 @@ public class Weapon : MonoBehaviour
     Vector3 movePosition;
     public GameObject weaponPoint;
 
-    // Enemy enemy;
+    Enemy enemy;
+    public int damage;
 
     void Start() {
         target = GetClosestEnemy();
@@ -63,10 +64,10 @@ public class Weapon : MonoBehaviour
 
     private void OnTriggerEnter2D(Collider2D other) {
         if (other.CompareTag("Enemy")) {
-            // enemy = other.GetComponent<Enemy>();  //?
-            // enemy.TakeDamage(5);
-            Destroy(other.gameObject);
-            target = null;
+            enemy = other.GetComponent<Enemy>();  //?
+            enemy.TakeDamage(damage);
+            // Destroy(other.gameObject);
+            // target = null;
         }
     }
 

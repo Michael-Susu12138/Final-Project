@@ -574,8 +574,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   archer: {fileID: 7894730042148967479}
-  speed: 3
+  speed: 1
   weaponPoint: {fileID: 7951249321439976003}
+  damage: 2
 --- !u!1 &7894730042148967479
 GameObject:
   m_ObjectHideFlags: 0
@@ -672,7 +673,7 @@ MonoBehaviour:
   weapon: {fileID: 6369721862344748681}
   _animator: {fileID: 0}
   weaponPoint: {fileID: 7951249321439976003}
-  range: 15
+  range: 5
 --- !u!1 &7951249321439976003
 GameObject:
   m_ObjectHideFlags: 0

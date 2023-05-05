@@ -146,6 +146,7 @@ MonoBehaviour:
   archer: {fileID: 8039107761783257859}
   speed: 4
   weaponPoint: {fileID: 8112304735946575862}
+  damage: 1
 --- !u!50 &9029769741714599009
 Rigidbody2D:
   serializedVersion: 4
@@ -687,7 +688,7 @@ Rigidbody2D:
   m_Mass: 1
   m_LinearDrag: 0
   m_AngularDrag: 0.05
-  m_GravityScale: 1
+  m_GravityScale: 0
   m_Material: {fileID: 0}
   m_Interpolate: 0
   m_SleepingMode: 1
@@ -728,7 +729,7 @@ MonoBehaviour:
   weapon: {fileID: 651188454633471506}
   _animator: {fileID: 0}
   weaponPoint: {fileID: 8112304735946575862}
-  range: 10
+  range: 7
 --- !u!1 &8112304735946575862
 GameObject:
   m_ObjectHideFlags: 0
