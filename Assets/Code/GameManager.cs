@@ -31,7 +31,7 @@ public class GameManager : MonoBehaviour
         goldUI = GameObject.FindGameObjectWithTag("GoldUI").GetComponent<TextMeshProUGUI>();
         healthUI = GameObject.FindGameObjectWithTag("HealthUI").GetComponent<TextMeshProUGUI>();
         waveUI = GameObject.FindGameObjectWithTag("WaveUI").GetComponent<TextMeshProUGUI>();
-        gold = 100;
+        gold = 2000;
         Debug.Log(gold);
         goldUI.text = "GOLD: " + gold;
         healthUI.text = "HEALTH: " + health.ToString() + "/15";

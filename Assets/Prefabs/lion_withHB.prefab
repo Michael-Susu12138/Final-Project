@@ -14,7 +14,6 @@ GameObject:
   - component: {fileID: 5844515633887255736}
   - component: {fileID: 3012376400395370736}
   - component: {fileID: 3212545690292743125}
-  - component: {fileID: 8419632687582230539}
   - component: {fileID: -6251614740826234274}
   m_Layer: 5
   m_Name: lion_withHB
@@ -142,6 +141,7 @@ MonoBehaviour:
   healthBar: {fileID: 7858319560509985791}
   destroySound: {fileID: 8300000, guid: 291b104169e7b499c9c410d8487a31e3, type: 3}
   soundDelay: 0
+  nextLevelToLoad: 
 --- !u!60 &3212545690292743125
 PolygonCollider2D:
   m_ObjectHideFlags: 0
@@ -152,7 +152,7 @@ PolygonCollider2D:
   m_Enabled: 1
   m_Density: 1
   m_Material: {fileID: 0}
-  m_IsTrigger: 0
+  m_IsTrigger: 1
   m_UsedByEffector: 0
   m_UsedByComposite: 0
   m_Offset: {x: 0, y: 0}
@@ -278,27 +278,6 @@ PolygonCollider2D:
       - {x: -5.039999, y: -14.139998}
       - {x: -4.2599993, y: -13.034999}
       - {x: -3.5449994, y: -12.969999}
---- !u!50 &8419632687582230539
-Rigidbody2D:
-  serializedVersion: 4
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 8419632687187317203}
-  m_BodyType: 0
-  m_Simulated: 1
-  m_UseFullKinematicContacts: 0
-  m_UseAutoMass: 0
-  m_Mass: 0.0001
-  m_LinearDrag: 0
-  m_AngularDrag: 0.05
-  m_GravityScale: 0
-  m_Material: {fileID: 0}
-  m_Interpolate: 0
-  m_SleepingMode: 1
-  m_CollisionDetection: 0
-  m_Constraints: 0
 --- !u!82 &-6251614740826234274
 AudioSource:
   m_ObjectHideFlags: 0
