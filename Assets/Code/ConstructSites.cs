@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -11,13 +12,19 @@ public class ConstructSites : MonoBehaviour
     Transform card;
     Camera cam;
     public LayerMask  UILayer;
+    List<GameObject> sites = new List<GameObject>();
     public GameObject gamePanel,chickenHouselvl1, chickenHouselvl2,chickenHouselvl3,done_gamePanel,destructionPanel,sheepHouselvl1, sheepHouselvl2,sheepHouselvl3;
     GameObject construct_site,buildPanel,Construction;
     string currentLevel;
     bool isCoroutineRunning = false;
     private void Start() {
         cam = Camera.main;
-
+        int signature = 0;
+        foreach(GameObject site in GameObject.FindGameObjectsWithTag("construct_sites")){
+            site.transform.name = "site:" + signature.ToString();
+            sites.Add(site);
+            signature+=1;
+        }
     }
 
     // Update is called once per frame
@@ -79,7 +86,9 @@ public class ConstructSites : MonoBehaviour
                     {
                         Destroy(buildPanel);
                     }
+                    // buildPanel belongs to this particular construction sites
                     buildPanel = Instantiate(gamePanel, card.position, Quaternion.identity);
+                    buildPanel.SetActive(true);
                 }
                     
 
@@ -94,7 +103,7 @@ public class ConstructSites : MonoBehaviour
             // chicken constructions
             if(card.gameObject.CompareTag("chickenIcon")){
                 Transform build_trans = GameObject.FindWithTag("build_panel").transform;
-                Instantiate(chickenHouselvl1,build_trans.position,Quaternion.identity);
+                GameObject c1 = Instantiate(chickenHouselvl1,build_trans.position,Quaternion.identity);
                 // after instantiation of the construction, destroy all the game panels and icons
                 // foreach (GameObject obj in GameObject.FindGameObjectsWithTag("chickenIcon")){
                 //     Destroy(obj);
@@ -102,6 +111,7 @@ public class ConstructSites : MonoBehaviour
                 build_trans.gameObject.SetActive(false);
                 if(construct_site.activeSelf){
                     construct_site.SetActive(false);
+                    c1.transform.name = "c1-"+construct_site.transform.name;
                 }
             }
 
@@ -122,7 +132,7 @@ public class ConstructSites : MonoBehaviour
             // sheep constructions
             if (card.gameObject.CompareTag("sheepIcon")){
                 Transform build_trans = GameObject.FindWithTag("build_panel").transform;
-                Instantiate(sheepHouselvl1,build_trans.position,Quaternion.identity);
+                GameObject s1 = Instantiate(sheepHouselvl1,build_trans.position,Quaternion.identity);
                 // after instantiation of the construction, destroy all the game panels and icons
                 // foreach (GameObject obj in GameObject.FindGameObjectsWithTag("chickenIcon")){
                 //     Destroy(obj);
@@ -130,6 +140,7 @@ public class ConstructSites : MonoBehaviour
                 build_trans.gameObject.SetActive(false);
                 if(construct_site.activeSelf){
                     construct_site.SetActive(false);
+                    s1.transform.name = "s1-"+construct_site.transform.name;
                 }
             }
             buildPanel_done_construct("sheepHouse_lvl1",card);
@@ -154,6 +165,7 @@ public class ConstructSites : MonoBehaviour
             currentLevel = tagName;
             if(GameObject.FindWithTag("build_panel") == null){
                 buildPanel = Instantiate(done_gamePanel,card.position,Quaternion.identity);
+                buildPanel.transform.name = "bp-"+Construction.transform.name;
             }
             else if (GameObject.FindWithTag("build_panel").activeSelf){
                 // Destroy(GameObject.FindWithTag("build_panel"));
@@ -184,7 +196,12 @@ public class ConstructSites : MonoBehaviour
         if(card.gameObject.CompareTag("Destruction")){
             Transform build_trans = GameObject.FindWithTag("build_panel").transform;
             // Instantiate(construct_site_prefab,build_trans.position,Quaternion.identity);
-            construct_site.SetActive(true);
+
+            // construct_site stores something else ERROR
+            int colonInd = build_trans.name.IndexOf(":");
+            int sig = Int32.Parse(build_trans.name.Substring(colonInd+1));
+            sites[sig].SetActive(true);
+            // construct_site.SetActive(true);
             //destory its parent 
             if (Construction.transform.parent != null){
                 Destroy(Construction.transform.parent.gameObject);
@@ -193,7 +210,12 @@ public class ConstructSites : MonoBehaviour
         } 
         if(card.gameObject.CompareTag("LevelUp")){
             Transform build_trans = GameObject.FindWithTag("build_panel").transform; 
-            Instantiate(nextLevelPrefab,build_trans.position,Quaternion.identity);
+            GameObject nl = Instantiate(nextLevelPrefab,build_trans.position,Quaternion.identity);
+            nl.transform.name = "nl-" + build_trans.name;
+            if (nl.transform.childCount > 0){
+                nl.transform.GetChild(0).transform.name = "nl-" + build_trans.name;
+            }
+            
             // destroy its parent
             if (Construction.transform.parent != null){
                 Destroy(Construction.transform.parent.gameObject);
