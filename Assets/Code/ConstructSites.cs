@@ -17,8 +17,10 @@ public class ConstructSites : MonoBehaviour
     GameObject construct_site,buildPanel,Construction;
     string currentLevel;
     bool isCoroutineRunning = false;
+    GameManager _gameManager;
     private void Start() {
         cam = Camera.main;
+        _gameManager = GameObject.FindObjectOfType<GameManager>();
         int signature = 0;
         foreach(GameObject site in GameObject.FindGameObjectsWithTag("construct_sites")){
             site.transform.name = "site:" + signature.ToString();
@@ -101,7 +103,10 @@ public class ConstructSites : MonoBehaviour
             }
             
             // chicken constructions
-            if(card.gameObject.CompareTag("chickenIcon")){
+            //40 gold
+
+            if(card.gameObject.CompareTag("chickenIcon") && _gameManager.gold >=40){
+                _gameManager.useGold(40);
                 Transform build_trans = GameObject.FindWithTag("build_panel").transform;
                 GameObject c1 = Instantiate(chickenHouselvl1,build_trans.position,Quaternion.identity);
                 // after instantiation of the construction, destroy all the game panels and icons
@@ -130,7 +135,9 @@ public class ConstructSites : MonoBehaviour
             construct_doneBuildPanel(currentLevel); 
 
             // sheep constructions
-            if (card.gameObject.CompareTag("sheepIcon")){
+            // 50
+            if (card.gameObject.CompareTag("sheepIcon") && _gameManager.gold >=50){
+                _gameManager.useGold(40);
                 Transform build_trans = GameObject.FindWithTag("build_panel").transform;
                 GameObject s1 = Instantiate(sheepHouselvl1,build_trans.position,Quaternion.identity);
                 // after instantiation of the construction, destroy all the game panels and icons

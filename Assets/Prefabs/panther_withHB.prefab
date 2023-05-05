@@ -138,7 +138,7 @@ PolygonCollider2D:
   m_Enabled: 1
   m_Density: 1
   m_Material: {fileID: 0}
-  m_IsTrigger: 0
+  m_IsTrigger: 1
   m_UsedByEffector: 0
   m_UsedByComposite: 0
   m_Offset: {x: 0, y: 0}
@@ -542,6 +542,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 25c099b1291be4064bdb4cfe1412b0ae, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  speed: 2
+  routeTag: wayPoints
   speed: 3
   routeTag: wolverineRoute2
 --- !u!82 &-109779153517915653
