@@ -2,21 +2,21 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class rockSheep_new : MonoBehaviour
+public class Archer : MonoBehaviour
 {
-    public GameObject rock;
+    public GameObject weapon;
     public Animator _animator;
     Rigidbody2D _rigidbody2d;
-    public GameObject closestEnemy = null;
-    public bool thrown = false;
-    Vector3 rockPosition;
-    public GameObject rockPoint;
+    GameObject closestEnemy = null;
+    bool thrown = false;
+    Vector3 weaponPosition;
+    public GameObject weaponPoint;
     public int range;
 
     void Start() {
         _animator = GetComponent<Animator>();
         _rigidbody2d = GetComponent<Rigidbody2D>();
-        rockPosition = rockPoint.transform.position;
+        weaponPosition = weaponPoint.transform.position;
         closestEnemy = GetClosestEnemy();
     }
 
@@ -33,13 +33,13 @@ public class rockSheep_new : MonoBehaviour
             thrown = true;
         }
 
-        if (rock.transform.position == rockPosition) {
+        if (weapon.transform.position == weaponPosition) {
             thrown = false;
         }
 
         closestEnemy = GetClosestEnemy();
 
-        if ((thrown == false) && (rock.transform.position == rockPosition) && (closestEnemy != null)) {
+        if ((thrown == false) && (weapon.transform.position == weaponPosition) && (closestEnemy != null)) {
             _animator.SetBool("isThrowing", true);
         }
         else {

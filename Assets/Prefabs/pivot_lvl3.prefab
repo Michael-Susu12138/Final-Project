@@ -10,7 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 8178184287462366445}
   - component: {fileID: 8178184287462366444}
-  m_Layer: 0
+  m_Layer: 5
   m_Name: pivot_lvl3
   m_TagString: Untagged
   m_Icon: {fileID: 1206586993520771344, guid: 0000000000000000d000000000000000, type: 0}

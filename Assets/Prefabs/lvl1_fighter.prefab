@@ -163,3 +163,4 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   x_speed: 1
   y_speed: 1
+  fight: 0

@@ -4,60 +4,57 @@ using UnityEngine;
 
 public class Weapon : MonoBehaviour
 {
-    public Animator _animator;
-    public GameObject target;
+    GameObject target;
     public GameObject archer;
 
-    public float speed = 10f;
+    public float speed;
     private float dist;
     private float nextX;
     private float baseY;
     private float height;
     private float archerX;
     private float targetX;
-    public Vector3 movePosition;
-    public Vector3 spawnPosition;
-    // public bool thrown;
+    Vector3 movePosition;
+    public GameObject weaponPoint;
 
     // Enemy enemy;
 
     void Start() {
-        // thrown = false;
-        _animator = GetComponent<Animator>();
         target = GetClosestEnemy();
-        spawnPosition = transform.position;
     }
 
-    void Update() {
+    void FixedUpdate() {
         // https://weeklyhow.com/how-to-make-arrow-projectile-in-2d/#Scripting_Projectiles
         if (target != null) {
-            // if (!thrown) {
-                // thrown = true;
+            targetX = target.transform.position.x;
+            archerX = archer.transform.position.x;
 
-                targetX = target.transform.position.x;
-                archerX = archer.transform.position.x;
+            dist = targetX - archerX;
+            nextX = Mathf.MoveTowards(transform.position.x, targetX, speed * Time.deltaTime);
+            baseY = Mathf.Lerp(archer.transform.position.y, target.transform.position.y, (nextX - archerX) / dist);
+            height = 2 * (nextX - archerX) * (nextX - targetX) / (-0.25f * dist * dist);
 
-                dist = targetX - archerX;
-                nextX = Mathf.MoveTowards(transform.position.x, targetX, speed * Time.deltaTime);
-                baseY = Mathf.Lerp(archer.transform.position.y, target.transform.position.y, (nextX - archerX) / dist);
-                height = 2 * (nextX - archerX) * (nextX - targetX) / (-0.25f * dist * dist);
+            movePosition = new Vector3(nextX, baseY + height, transform.position.z);
 
-                movePosition = new Vector3(nextX, baseY + height, transform.position.z);
+            transform.rotation = LookAtTarget(movePosition - transform.position);
+            transform.position = movePosition;
 
-                transform.rotation = LookAtTarget(movePosition - transform.position);
-                transform.position = movePosition;
-
-                if (transform.position == target.transform.position) {
-                    transform.position = spawnPosition;
-                    // thrown = false;
-                }
-            // }
+            if (transform.position == target.transform.position) {
+                transform.position = weaponPoint.transform.position;
+                transform.rotation = Quaternion.Euler(0,0,0);
+                transform.localScale = archer.transform.localScale;
+            }
         }
+
         else {
-            print("get");
+            transform.position = weaponPoint.transform.position;
+            transform.rotation = Quaternion.Euler(0,0,0);
+            transform.localScale = archer.transform.localScale;
+            
             target = GetClosestEnemy();
-            // thrown = false;
         }
+
+        target = GetClosestEnemy();
     }
 
     public static Quaternion LookAtTarget(Vector2 rotation) {
@@ -78,7 +75,7 @@ public class Weapon : MonoBehaviour
         gos = GameObject.FindGameObjectsWithTag("Enemy");
         GameObject closest = null;
         float distance = Mathf.Infinity;
-        Vector3 position = transform.position;
+        Vector3 position = archer.transform.position;
         foreach (GameObject go in gos) {
             Vector3 diff = go.transform.position - position;
             float curDistance = diff.sqrMagnitude;
@@ -87,6 +84,13 @@ public class Weapon : MonoBehaviour
                 distance = curDistance;
             }
         }
-        return closest;
+        
+        if (distance < 10) {
+            return closest;
+        }
+
+        else {
+            return null;
+        }
     }
 }
