@@ -23,4 +23,7 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/FinishedScenes/Fail.unity
     guid: ab1c856167ca94312b9af4789be37d49
+  - enabled: 1
+    path: Assets/Scenes/FinishedScenes/Transitions.unity
+    guid: d1a797daf18f26f41b64519360a80de2
   m_configObjects: {}
