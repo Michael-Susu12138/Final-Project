@@ -6,11 +6,17 @@ public class SheepHouseBehavior : MonoBehaviour
 {
     // Start is called before the first frame update
     Transform spawnPos;
-    public GameObject sheepArcher;
+    public GameObject sheepArcher_prefab;
+    GameObject archer;
     void Start()
     {
         spawnPos = gameObject.transform.GetChild(0);
-        Instantiate(sheepArcher,spawnPos.position,Quaternion.identity);
+        archer = Instantiate(sheepArcher_prefab,spawnPos.position,Quaternion.identity);
+    }
+
+    void OnDestroy()
+    {
+        Destroy(archer);
     }
 
     

@@ -155,7 +155,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2b7b67c7e212c53468c8bf2cac5b553a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  sheepArcher: {fileID: 4610989563344898943, guid: cf3aeef75d11c444f881d02176c3c84d, type: 3}
+  sheepArcher_prefab: {fileID: 4610989563344898943, guid: 283bca01383831a449599e16973479a7, type: 3}
 --- !u!1 &8756556870391931716
 GameObject:
   m_ObjectHideFlags: 0
@@ -171,7 +171,7 @@ GameObject:
   m_Icon: {fileID: 5132851093641282708, guid: 0000000000000000d000000000000000, type: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!4 &7066690864268551249
 Transform:
   m_ObjectHideFlags: 0

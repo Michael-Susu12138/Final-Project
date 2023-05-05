@@ -667,13 +667,10 @@ MonoBehaviour:
   m_GameObject: {fileID: 7894730042148967479}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: c7f92bc6c37e5ed498cc79b7545d2309, type: 3}
+  m_Script: {fileID: 11500000, guid: 2eb22574c02e8514fb41c8274856b91d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  weapon: {fileID: 6369721862344748681}
-  _animator: {fileID: 0}
-  weaponPoint: {fileID: 7951249321439976003}
-  range: 5
+  _animator: {fileID: 4631065504970596567}
 --- !u!1 &7951249321439976003
 GameObject:
   m_ObjectHideFlags: 0

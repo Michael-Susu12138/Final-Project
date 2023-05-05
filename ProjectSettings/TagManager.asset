@@ -23,6 +23,11 @@ TagManager:
   - wolverineRoute3
   - killZone
   - done_panel
+  - Archer
+  - Fighter
+  - HealthUI
+  - GoldUI
+  - WaveUI
   layers:
   - Default
   - TransparentFX
