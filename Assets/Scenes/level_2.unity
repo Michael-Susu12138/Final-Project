@@ -3149,6 +3149,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: panther
       objectReference: {fileID: 0}
+    - target: {fileID: 7764278222568534234, guid: 2270a016581ed490b85090275e4a1dfd, type: 3}
+      propertyPath: m_Layer
+      value: 5
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 2270a016581ed490b85090275e4a1dfd, type: 3}
 --- !u!1001 &7810711358704600545
