@@ -17,6 +17,8 @@ public class GameManager : MonoBehaviour
     TMP_Text waveUI;
     private int enemiesRemaining;
     public bool nextWave = true;
+    public Camera mainCamera;
+
     private void Awake()
     {
         if (FindObjectsOfType<GameManager>().Length > 1)
@@ -26,8 +28,10 @@ public class GameManager : MonoBehaviour
         else
         {
             DontDestroyOnLoad(gameObject);
+            mainCamera = Camera.main;
         }
     }
+
     void Start()
     {
         goldUI = GameObject.FindGameObjectWithTag("GoldUI").GetComponent<TextMeshProUGUI>();

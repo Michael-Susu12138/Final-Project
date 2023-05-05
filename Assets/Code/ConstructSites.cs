@@ -19,8 +19,10 @@ public class ConstructSites : MonoBehaviour
     bool isCoroutineRunning = false;
     GameManager _gameManager;
     private void Start() {
-        cam = Camera.main;
+        // cam = Camera.main;
+        
         _gameManager = GameObject.FindObjectOfType<GameManager>();
+        
         int signature = 0;
         foreach(GameObject site in GameObject.FindGameObjectsWithTag("construct_sites")){
             site.transform.name = "site:" + signature.ToString();
@@ -69,7 +71,7 @@ public class ConstructSites : MonoBehaviour
         //     return;
         // }
 
-        Vector2 worldPos = cam.ScreenToWorldPoint(touchPos);
+        Vector2 worldPos = _gameManager.mainCamera.ScreenToWorldPoint(touchPos);
 
         if (Physics2D.OverlapPoint(worldPos, UILayer))
         {            
