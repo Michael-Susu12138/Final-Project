@@ -8,10 +8,12 @@ public class SheepHouseBehavior : MonoBehaviour
     Transform spawnPos;
     public GameObject sheepArcher_prefab;
     GameObject archer;
+    public int level;
     void Start()
     {
         spawnPos = gameObject.transform.GetChild(0);
         archer = Instantiate(sheepArcher_prefab,spawnPos.position,Quaternion.identity);
+        archer.GetComponent<spadeSheep>().levelAS = level;
     }
 
     void OnDestroy()

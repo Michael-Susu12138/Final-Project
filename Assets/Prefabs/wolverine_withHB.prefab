@@ -16,7 +16,7 @@ GameObject:
   - component: {fileID: 3061116434684221143}
   - component: {fileID: 3061116434684221090}
   - component: {fileID: -650603247778434549}
-  m_Layer: 5
+  m_Layer: 6
   m_Name: wolverine_withHB
   m_TagString: Enemy
   m_Icon: {fileID: 0}
@@ -130,6 +130,7 @@ MonoBehaviour:
   destroySound: {fileID: 8300000, guid: 7671105c99d5143b4ab3b4d7341b4d80, type: 3}
   soundDelay: 1
   nextLevelToLoad: 
+  attacker: {fileID: 0}
 --- !u!60 &3061116434684221100
 PolygonCollider2D:
   m_ObjectHideFlags: 0
@@ -474,7 +475,7 @@ GameObject:
   - component: {fileID: 3061116433948555663}
   - component: {fileID: 3061116433948555661}
   - component: {fileID: 3061116433948555662}
-  m_Layer: 5
+  m_Layer: 6
   m_Name: heart
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -551,7 +552,7 @@ GameObject:
   - component: {fileID: 3061116434394795524}
   - component: {fileID: 3061116434394795525}
   - component: {fileID: 3061116434394795526}
-  m_Layer: 5
+  m_Layer: 6
   m_Name: Canvas
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -651,7 +652,7 @@ GameObject:
   - component: {fileID: 3061116434696923276}
   - component: {fileID: 3061116434696923274}
   - component: {fileID: 3061116434696923275}
-  m_Layer: 5
+  m_Layer: 6
   m_Name: Border
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -727,7 +728,7 @@ GameObject:
   - component: {fileID: 3061116435150405772}
   - component: {fileID: 3061116435150405770}
   - component: {fileID: 3061116435150405771}
-  m_Layer: 5
+  m_Layer: 6
   m_Name: fill
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -803,7 +804,7 @@ GameObject:
   - component: {fileID: 3061116435468410125}
   - component: {fileID: 3061116435468410123}
   - component: {fileID: 3061116435468410124}
-  m_Layer: 5
+  m_Layer: 6
   m_Name: health bar
   m_TagString: Untagged
   m_Icon: {fileID: 0}

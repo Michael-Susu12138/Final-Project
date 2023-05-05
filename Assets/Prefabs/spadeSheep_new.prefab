@@ -10,6 +10,8 @@ GameObject:
   m_Component:
   - component: {fileID: 8351654551094094455}
   - component: {fileID: 4778621905472927616}
+  - component: {fileID: 7872648499761900190}
+  - component: {fileID: 8938024975379189377}
   m_Layer: 5
   m_Name: spadeSheep_new
   m_TagString: Untagged
@@ -45,6 +47,42 @@ SortingGroup:
   m_SortingLayerID: 1010165599
   m_SortingLayer: 3
   m_SortingOrder: 0
+--- !u!114 &7872648499761900190
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1998935069605281201}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2eb22574c02e8514fb41c8274856b91d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _animator: {fileID: 8938024975379189377}
+  spadePrefab: {fileID: 7817515664695616313, guid: 0c718345b3f7e154c8363046c45a1485, type: 3}
+  throwRate: 2
+  spadeSpawnPoint: {fileID: 0}
+--- !u!95 &8938024975379189377
+Animator:
+  serializedVersion: 5
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1998935069605281201}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 0}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_StabilizeFeet: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorStateOnDisable: 0
 --- !u!1 &2700197538119669084
 GameObject:
   m_ObjectHideFlags: 0
@@ -671,6 +709,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _animator: {fileID: 4631065504970596567}
+  spadePrefab: {fileID: 0}
+  throwRate: 2
+  spadeSpawnPoint: {fileID: 0}
 --- !u!1 &7951249321439976003
 GameObject:
   m_ObjectHideFlags: 0
