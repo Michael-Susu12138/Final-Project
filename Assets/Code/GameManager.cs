@@ -15,6 +15,8 @@ public class GameManager : MonoBehaviour
     TMP_Text goldUI;
     TMP_Text healthUI;
     TMP_Text waveUI;
+    private int enemiesRemaining;
+    public bool nextWave = true;
     private void Awake()
     {
         if (FindObjectsOfType<GameManager>().Length > 1)
@@ -38,6 +40,7 @@ public class GameManager : MonoBehaviour
         healthUI.text = "HEALTH: " + health.ToString() + "/15";
         waveUI.text = "WAVES: " + waves + "/7";
     }
+
     public void reduceHealth(int val) {
         health -= val;
         healthUI.text = "HEALTH: " + health.ToString() + "/15";
@@ -60,6 +63,7 @@ public class GameManager : MonoBehaviour
         if(waves>=7){
             lastLevel = true;
         }
+        
         
     }
 }
