@@ -213,21 +213,27 @@ public class ConstructSites : MonoBehaviour
             if (Construction.transform.parent != null){
                 Destroy(Construction.transform.parent.gameObject);
             }
+            _gameManager.addGold(30);
             Destroy(Construction);
         } 
         if(card.gameObject.CompareTag("LevelUp")){
-            Transform build_trans = GameObject.FindWithTag("build_panel").transform; 
-            GameObject nl = Instantiate(nextLevelPrefab,build_trans.position,Quaternion.identity);
-            nl.transform.name = "nl-" + build_trans.name;
-            if (nl.transform.childCount > 0){
-                nl.transform.GetChild(0).transform.name = "nl-" + build_trans.name;
+            // 50 for level up
+            if(_gameManager.gold >= 50){
+                _gameManager.useGold(50);
+                Transform build_trans = GameObject.FindWithTag("build_panel").transform; 
+                GameObject nl = Instantiate(nextLevelPrefab,build_trans.position,Quaternion.identity);
+                nl.transform.name = "nl-" + build_trans.name;
+                if (nl.transform.childCount > 0){
+                    nl.transform.GetChild(0).transform.name = "nl-" + build_trans.name;
+                }
+                
+                // destroy its parent
+                if (Construction.transform.parent != null){
+                    Destroy(Construction.transform.parent.gameObject);
+                }
+                Destroy(Construction);
             }
             
-            // destroy its parent
-            if (Construction.transform.parent != null){
-                Destroy(Construction.transform.parent.gameObject);
-            }
-            Destroy(Construction);
         }
     }
 }

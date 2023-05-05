@@ -129,6 +129,7 @@ MonoBehaviour:
   healthBar: {fileID: 3061116435468410124}
   destroySound: {fileID: 8300000, guid: 7671105c99d5143b4ab3b4d7341b4d80, type: 3}
   soundDelay: 1
+  nextLevelToLoad: 
 --- !u!60 &3061116434684221100
 PolygonCollider2D:
   m_ObjectHideFlags: 0
@@ -139,7 +140,7 @@ PolygonCollider2D:
   m_Enabled: 1
   m_Density: 1
   m_Material: {fileID: 0}
-  m_IsTrigger: 0
+  m_IsTrigger: 1
   m_UsedByEffector: 0
   m_UsedByComposite: 0
   m_Offset: {x: 0, y: 0}
