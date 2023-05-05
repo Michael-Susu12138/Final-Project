@@ -22,6 +22,7 @@ TagManager:
   - wolverineRoute2
   - wolverineRoute3
   - killZone
+  - Archer
   layers:
   - Default
   - TransparentFX
