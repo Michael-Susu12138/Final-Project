@@ -7,10 +7,14 @@ public class Enemy : MonoBehaviour
     public int hp = 9; //hp is the max health of this enemy
     public int currentHealth;
     public HealthBar healthBar;
+    public AudioClip destroySound;
+    public float soundDelay;
+    AudioSource audioSource;
     void Start()
     {
         currentHealth = hp;
         healthBar.SetMaxHealth(hp);
+        audioSource = GetComponent<AudioSource>();
     }
 
     void Update()
@@ -25,6 +29,7 @@ public class Enemy : MonoBehaviour
         currentHealth -= amount;
         healthBar.SetHealth(currentHealth);
         if(currentHealth<=0){
+            audioSource.PlayOneShot(destroySound);
             Destroy(gameObject);
         }
     }
