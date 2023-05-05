@@ -30,7 +30,7 @@ public class LevelTwoEnemySpawn : MonoBehaviour
                 Instantiate(Enemy3, new Vector2(-10.01f,-2.86f), Quaternion.identity);
                 count++;
             } 
-            yield return new WaitForSeconds(6.2f);
+            yield return new WaitForSeconds(22.2f);
             count = 0;
             _gameManager.increaseWave();
             if(_gameManager.lastLevel == true){
