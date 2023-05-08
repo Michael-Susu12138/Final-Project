@@ -15,10 +15,12 @@ public class WolverineMove : MonoBehaviour
     {
         
         _rigidbody2D = GetComponent<Rigidbody2D>(); 
-        foreach(GameObject wayPoint in GameObject.FindGameObjectsWithTag(routeTag)){
-            wayPoints.Add(wayPoint.transform);
-        }
-        Debug.Log(wayPoints);
+        
+        GameObject wayPoint_parent = GameObject.FindGameObjectWithTag(routeTag).transform.parent.gameObject;
+        foreach(Transform child in wayPoint_parent.transform)
+        {
+            wayPoints.Add(child.gameObject.transform);
+        } 
     }
     // Update is called once per frame
     void Update()

@@ -19,7 +19,7 @@ public class ConstructSites : MonoBehaviour
     bool isCoroutineRunning = false;
     GameManager _gameManager;
     private void Start() {
-        // cam = Camera.main;
+        cam = Camera.main;
         
         _gameManager = GameObject.FindObjectOfType<GameManager>();
         
@@ -71,7 +71,7 @@ public class ConstructSites : MonoBehaviour
         //     return;
         // }
 
-        Vector2 worldPos = _gameManager.mainCamera.ScreenToWorldPoint(touchPos);
+        Vector2 worldPos = cam.ScreenToWorldPoint(touchPos);
 
         if (Physics2D.OverlapPoint(worldPos, UILayer))
         {            
@@ -240,7 +240,7 @@ public class ConstructSites : MonoBehaviour
         if (card.gameObject.CompareTag("LevelUp"))
         {
             // Check if the construction is not at max level
-            if (!isMaxLevel && _gameManager.gold >= 50)
+            if (!isMaxLevel && _gameManager.gold >= 50) 
             {
                 _gameManager.useGold(50);
                 Transform build_trans = GameObject.FindWithTag("build_panel").transform;

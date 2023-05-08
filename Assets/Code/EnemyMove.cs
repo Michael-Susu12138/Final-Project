@@ -17,9 +17,14 @@ public class EnemyMove : MonoBehaviour
 
         // wayPointsObj = GameObject.FindGameObjectsWithTag("wayPoints");
         // StartCoroutine(MoveLoop());
-        foreach(GameObject wayPoint in GameObject.FindGameObjectsWithTag("wayPoints")){
-            wayPoints.Add(wayPoint.transform);
-        }
+        // foreach(GameObject wayPoint in GameObject.FindGameObjectsWithTag("wayPoints")){
+        //     wayPoints.Add(wayPoint.transform);
+        // }
+        GameObject wayPoint_parent = GameObject.FindGameObjectWithTag("wayPoints").transform.parent.gameObject;
+        foreach(Transform child in wayPoint_parent.transform)
+        {
+            wayPoints.Add(child.gameObject.transform);
+        }   
         Debug.Log(wayPoints);
     }
     // Update is called once per frame
